@@ -29,6 +29,14 @@
       background: #ffffff;
     }
 
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HERO CON VIDEO DE CIELO AZUL ILUSTRACIÓN DIGITAL VINTAGE */
+
     .hero {
       position: relative;
       width: 100%;
@@ -68,6 +76,8 @@
       z-index: 2;
     }
 
+    /* Blur blanco hacia arriba al final del home */
+
     .hero-blur-bottom {
       position: absolute;
       left: 0;
@@ -82,6 +92,8 @@
       pointer-events: none;
       z-index: 3;
     }
+
+    /* CONTENIDO DEL HERO */
 
     .hero-content {
       position: relative;
@@ -142,6 +154,8 @@
       }
     }
 
+    /* SECCIÓN SIGUIENTE PARA VER EL BLUR BLANCO HACIA ARRIBA */
+
     .next-section {
       position: relative;
       width: 100%;
@@ -162,37 +176,39 @@
   </style>
 </head>
 <body>
-  <!-- HOME con video de cielo azul ilustración digital vintage -->
-  <section class="hero">
-    <div class="hero-video-wrapper">
-      <!-- Sube tu video a assets y usa la ruta correcta -->
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="assets/sky-vintage.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video-overlay"></div>
-      <div class="hero-blur-bottom"></div>
-    </div>
+  <div class="page">
+    <!-- HOME con video de cielo azul ilustración digital vintage -->
+    <section class="hero">
+      <div class="hero-video-wrapper">
+        <!-- IMPORTANTE: pon aquí tu archivo real dentro de assets/ -->
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="assets/sky-vintage.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+        <div class="hero-blur-bottom"></div>
+      </div>
 
-    <div class="hero-content">
-      <h1 class="hero-title">
-        We bring fulfillment<br>
-        To your work and your life!
-      </h1>
-      <p class="hero-subtitle">
-        Systro Solutions helps small business owners design organizations that feel aligned, calm and purposefully profitable.
-      </p>
-      <button class="hero-btn">
-        Our services
-      </button>
-    </div>
-  </section>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          We bring fulfillment<br>
+          To your work and your life!
+        </h1>
+        <p class="hero-subtitle">
+          Systro Solutions helps small business owners design organizations that feel aligned, calm and purposefully profitable.
+        </p>
+        <button class="hero-btn">
+          Our services
+        </button>
+      </div>
+    </section>
 
-  <!-- Sección siguiente para ver el blur blanco hacia arriba -->
-  <section class="next-section">
-    <div class="next-content">
-      Aquí empieza la siguiente sección del sitio (ABOUT, SERVICES, etc.).<br>
-      El borde superior se funde con el blur blanco del video de cielo.
-    </div>
-  </section>
+    <!-- Sección siguiente -->
+    <section class="next-section">
+      <div class="next-content">
+        Aquí empieza la siguiente sección del sitio (ABOUT, SERVICES, etc.).<br>
+        El borde superior se funde con el blur blanco del video de cielo.
+      </div>
+    </section>
+  </div>
 </body>
 </html>
