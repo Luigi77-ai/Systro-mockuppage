@@ -8,6 +8,9 @@
   <style>
     :root {
       --text-main: #102033;
+      --bg-overlay-top: rgba(0, 0, 0, 0.35);
+      --bg-overlay-mid: rgba(0, 0, 0, 0.15);
+      --bg-overlay-bottom: rgba(0, 0, 0, 0.55);
     }
 
     * {
@@ -41,65 +44,107 @@
       z-index: 1;
     }
 
-    /* Capa para oscurecer un poco y dar contraste al texto */
+    /* Overlay para contraste */
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom,
-        rgba(0, 0, 0, 0.35) 0%,
-        rgba(0, 0, 0, 0.15) 40%,
-        rgba(0, 0, 0, 0.55) 100%);
+        var(--bg-overlay-top) 0%,
+        var(--bg-overlay-mid) 40%,
+        var(--bg-overlay-bottom) 100%);
       z-index: 2;
     }
 
-    /* Contenedor del texto “serpenteando” alrededor de los brazos */
-    .hero-text-path {
-      position: relative;
-      z-index: 3;
-      width: 100%;
-      height: 100%;
+    /* TEXTO CENTRAL CON TYPING EFFECT */
+
+    .hero-center-text {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       pointer-events: none;
     }
 
-    .text-curve {
-      position: relative;
-      max-width: 480px;
+    .typing-wrapper {
+      max-width: 620px;
+      text-align: center;
       color: #ffffff;
-      font-size: 18px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      text-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
     }
 
-    /* Efecto serpenteado simple: cada span se desplaza en Y para simular curvas */
-    .text-curve span {
+    .typing-title {
+      font-size: clamp(30px, 4vw, 40px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      white-space: nowrap;
+      border-right: 2px solid rgba(255, 255, 255, 0.9);
+      overflow: hidden;
       display: inline-block;
-      padding-right: 6px;
+      animation: typing 7s steps(50, end) forwards, blinkCursor 0.9s step-end infinite;
     }
 
-    .text-curve span:nth-child(odd) {
-      transform: translateY(-6px);
+    .typing-subtitle {
+      font-size: 16px;
+      color: #e9ecf5;
+      margin-top: 8px;
     }
 
-    .text-curve span:nth-child(even) {
-      transform: translateY(6px);
+    @keyframes typing {
+      from { width: 0; }
+      to   { width: 100%; }
     }
 
-    .text-curve span:nth-child(4n) {
-      transform: translateY(10px);
+    @keyframes blinkCursor {
+      from, to { border-color: transparent; }
+      50%      { border-color: rgba(255, 255, 255, 0.9); }
     }
 
-    .text-curve span:nth-child(5n) {
-      transform: translateY(-10px);
+    /* TEXTO ALREDEDOR DE LAS MANOS (SVG + textPath) */
+
+    .hero-text-path {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    svg.text-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .text-on-hands {
+      font-size: 15px;
+      fill: #000000; /* texto negro como pediste */
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* Ajusta startOffset para mover el texto sobre la curva */
+    .text-on-hands-upper {
+      startOffset: 10%;
+    }
+
+    .text-on-hands-lower {
+      startOffset: 60%;
     }
 
     @media (max-width: 768px) {
-      .text-curve {
+      .typing-title {
+        font-size: 22px;
+        white-space: normal;
+      }
+
+      .typing-subtitle {
         font-size: 14px;
-        max-width: 320px;
+      }
+
+      .text-on-hands {
+        font-size: 12px;
       }
     }
   </style>
@@ -109,25 +154,47 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
 
-    <!-- Texto “serpenteando” alrededor (ajustado visualmente sobre la imagen) -->
+    <!-- TEXTO CURVO ALREDEDOR DE LAS MANOS -->
     <div class="hero-text-path">
-      <p class="text-curve">
-        <!-- Escribe aquí el texto que quieres alrededor de los brazos -->
-        <span>We</span>
-        <span>bring</span>
-        <span>fulfillment</span>
-        <span>to</span>
-        <span>your</span>
-        <span>work</span>
-        <span>and</span>
-        <span>your</span>
-        <span>life</span>
-        <span>with</span>
-        <span>purposeful</span>
-        <span>systems</span>
-        <span>and</span>
-        <span>strategy</span>
-      </p>
+      <svg class="text-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <!-- Curva superior (ajústala moviendo puntos para que siga el contorno de los brazos) -->
+        <path id="handsUpperPath"
+              d="M 10 35 C 30 15, 70 15, 90 35"
+              fill="none"
+              stroke="transparent" />
+
+        <!-- Curva inferior -->
+        <path id="handsLowerPath"
+              d="M 10 65 C 30 85, 70 85, 90 65"
+              fill="none"
+              stroke="transparent" />
+
+        <!-- Texto en la curva superior -->
+        <text class="text-on-hands">
+          <textPath href="#handsUpperPath">
+            Systro Solutions helps small business owners become purposefully profitable through strategy and organization.
+          </textPath>
+        </text>
+
+        <!-- Texto en la curva inferior -->
+        <text class="text-on-hands">
+          <textPath href="#handsLowerPath">
+            Systro Solutions helps small business owners become purposefully profitable through strategy and organization.
+          </textPath>
+        </text>
+      </svg>
+    </div>
+
+    <!-- TEXTO CENTRAL CON TYPING EFFECT (copy más emocionante) -->
+    <div class="hero-center-text">
+      <div class="typing-wrapper">
+        <span class="typing-title">
+          We bring fulfillment to the way you build, lead and live your business.
+        </span>
+        <p class="typing-subtitle">
+          Turn structure into freedom: align your operations so growth feels lighter, calmer and genuinely rewarding.
+        </p>
+      </div>
     </div>
   </section>
 </body>
