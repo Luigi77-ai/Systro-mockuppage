@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Systro Solutions – Animated Sky Home</title>
+  <title>Systro Solutions – Realistic Sky Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     :root {
-      --sky-top: #74c0ff;
-      --sky-mid: #a5d9ff;
-      --sky-bottom: #f8f9ff;
+      --sky-top: #4c8fdc;
+      --sky-mid: #7fb6f0;
+      --sky-bottom: #f1f6ff;
       --cloud: #ffffff;
-      --cloud-shadow: rgba(0, 0, 0, 0.06);
-      --sun: #ffe66d;
+      --cloud-shadow: rgba(0, 0, 0, 0.12);
       --bird: #1c3d5a;
-      --overlay: rgba(255, 255, 255, 0.15);
+      --overlay: rgba(255, 255, 255, 0.18);
+      --fog-top: rgba(241, 246, 255, 0);
+      --fog-mid: rgba(241, 246, 255, 0.9);
+      --fog-bottom: rgba(241, 246, 255, 1);
       --text-main: #0b213b;
       --text-sub: #34556f;
     }
@@ -25,64 +27,41 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
     }
 
-    /* Cielo anime */
-
-    .sky-scene {
+    .sky-section {
       position: relative;
       width: 100%;
-      height: 100vh;
-      background: linear-gradient(to bottom,
-        var(--sky-top) 0%,
-        var(--sky-mid) 40%,
-        var(--sky-bottom) 100%);
+      height: 80vh;
+      min-height: 520px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.9) 0, transparent 40%),
+        linear-gradient(to bottom, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-bottom) 100%);
       overflow: hidden;
     }
 
     .sky-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.4) 0, transparent 50%);
+      background: radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.7) 0, transparent 40%);
       mix-blend-mode: screen;
       pointer-events: none;
     }
 
-    /* Sol estilo ilustración */
-
-    .sun {
-      position: absolute;
-      top: 8%;
-      left: 14%;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: radial-gradient(circle,
-        var(--sun) 0%,
-        #ffd43b 40%,
-        rgba(255, 255, 255, 0) 70%);
-      box-shadow: 0 0 40px rgba(255, 230, 109, 0.9);
-      animation: sunGlow 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes sunGlow {
-      0% { transform: scale(1); opacity: 0.9; }
-      100% { transform: scale(1.05); opacity: 1; }
-    }
-
-    /* Nubes animadas */
+    /* Nubes realistas (más suaves, más grandes) */
 
     .cloud {
       position: absolute;
       background: var(--cloud);
-      box-shadow: 0 10px 30px var(--cloud-shadow);
+      box-shadow: 0 18px 50px var(--cloud-shadow);
       border-radius: 40px;
-      opacity: 0.95;
+      opacity: 0.96;
+      filter: blur(1.5px);
     }
 
     .cloud::before,
@@ -91,71 +70,72 @@
       position: absolute;
       background: var(--cloud);
       border-radius: 50px;
+      filter: blur(1px);
     }
 
     .cloud.cloud-1 {
-      width: 220px;
-      height: 60px;
-      top: 16%;
-      left: -260px;
-      animation: cloudDrift1 55s linear infinite;
+      width: 260px;
+      height: 70px;
+      top: 18%;
+      left: -280px;
+      animation: cloudDrift1 80s linear infinite;
     }
 
     .cloud.cloud-1::before {
-      width: 120px;
-      height: 80px;
+      width: 140px;
+      height: 90px;
       top: -40px;
       left: 30px;
     }
 
     .cloud.cloud-1::after {
-      width: 90px;
-      height: 70px;
-      top: -30px;
-      right: 20px;
-    }
-
-    .cloud.cloud-2 {
-      width: 260px;
-      height: 70px;
-      top: 32%;
-      left: 100%;
-      animation: cloudDrift2 70s linear infinite;
-    }
-
-    .cloud.cloud-2::before {
-      width: 130px;
+      width: 110px;
       height: 80px;
-      top: -40px;
-      left: 40px;
-    }
-
-    .cloud.cloud-2::after {
-      width: 100px;
-      height: 70px;
       top: -30px;
       right: 25px;
     }
 
+    .cloud.cloud-2 {
+      width: 320px;
+      height: 80px;
+      top: 30%;
+      left: 100%;
+      animation: cloudDrift2 95s linear infinite;
+    }
+
+    .cloud.cloud-2::before {
+      width: 150px;
+      height: 100px;
+      top: -45px;
+      left: 40px;
+    }
+
+    .cloud.cloud-2::after {
+      width: 120px;
+      height: 85px;
+      top: -32px;
+      right: 25px;
+    }
+
     .cloud.cloud-3 {
-      width: 180px;
-      height: 55px;
-      top: 22%;
+      width: 220px;
+      height: 65px;
+      top: 24%;
       left: 60%;
-      animation: cloudDrift3 65s linear infinite;
+      animation: cloudDrift3 90s linear infinite;
     }
 
     .cloud.cloud-3::before {
-      width: 110px;
-      height: 75px;
-      top: -35px;
-      left: 20px;
+      width: 130px;
+      height: 85px;
+      top: -38px;
+      left: 22px;
     }
 
     .cloud.cloud-3::after {
-      width: 80px;
-      height: 65px;
-      top: -28px;
+      width: 100px;
+      height: 75px;
+      top: -30px;
       right: 18px;
     }
 
@@ -174,26 +154,27 @@
       100% { transform: translateX(-120vw); }
     }
 
-    /* Aves */
+    /* Aves (más pequeñas y suaves) */
 
     .bird {
       position: absolute;
-      width: 32px;
-      height: 18px;
+      width: 30px;
+      height: 16px;
       color: var(--bird);
+      opacity: 0.9;
     }
 
     .bird::before,
     .bird::after {
       content: "";
       position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 16px 16px 0 0;
-      border-top: 3px solid var(--bird);
-      border-left: 3px solid var(--bird);
-      border-right: 3px solid transparent;
-      border-bottom: 3px solid transparent;
+      width: 14px;
+      height: 14px;
+      border-radius: 14px 14px 0 0;
+      border-top: 2px solid var(--bird);
+      border-left: 2px solid var(--bird);
+      border-right: 2px solid transparent;
+      border-bottom: 2px solid transparent;
       transform-origin: center bottom;
     }
 
@@ -210,42 +191,58 @@
     .bird.bird-1 {
       top: 26%;
       left: -10%;
-      animation: birdFly1 45s linear infinite;
+      animation: birdFly1 60s linear infinite;
     }
 
     .bird.bird-2 {
-      top: 18%;
+      top: 20%;
       left: 110%;
-      animation: birdFly2 50s linear infinite;
+      animation: birdFly2 70s linear infinite;
     }
 
     .bird.bird-3 {
-      top: 35%;
+      top: 32%;
       left: -20%;
-      animation: birdFly3 55s linear infinite;
+      animation: birdFly3 75s linear infinite;
     }
 
     @keyframes birdFly1 {
-      0%   { transform: translateX(0) translateY(0) scale(1); }
-      50%  { transform: translateX(60vw) translateY(-10px) scale(1.05); }
-      100% { transform: translateX(120vw) translateY(5px) scale(1.1); }
+      0%   { transform: translateX(0) translateY(0) scale(0.9); }
+      50%  { transform: translateX(60vw) translateY(-8px) scale(1); }
+      100% { transform: translateX(120vw) translateY(4px) scale(1.05); }
     }
 
     @keyframes birdFly2 {
-      0%   { transform: translateX(0) translateY(0) scale(0.9); }
-      50%  { transform: translateX(-60vw) translateY(12px) scale(1); }
-      100% { transform: translateX(-120vw) translateY(-6px) scale(1.05); }
+      0%   { transform: translateX(0) translateY(0) scale(0.85); }
+      50%  { transform: translateX(-60vw) translateY(10px) scale(0.95); }
+      100% { transform: translateX(-120vw) translateY(-6px) scale(1); }
     }
 
     @keyframes birdFly3 {
-      0%   { transform: translateX(0) translateY(0) scale(0.95); }
-      50%  { transform: translateX(70vw) translateY(10px) scale(1.05); }
-      100% { transform: translateX(140vw) translateY(-5px) scale(1.1); }
+      0%   { transform: translateX(0) translateY(0) scale(0.9); }
+      50%  { transform: translateX(70vw) translateY(6px) scale(1); }
+      100% { transform: translateX(140vw) translateY(-4px) scale(1.05); }
     }
 
-    /* Contenido (para que pongas el home de Systro encima) */
+    /* Niebla / blur en la parte baja de la sección */
 
-    .content-wrapper {
+    .sky-fog {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -40px;
+      height: 160px;
+      background: linear-gradient(to bottom,
+        var(--fog-top) 0%,
+        var(--fog-mid) 40%,
+        var(--fog-bottom) 100%);
+      filter: blur(6px);
+      pointer-events: none;
+    }
+
+    /* Contenido principal del home (placeholder) */
+
+    .home-content {
       position: absolute;
       inset: 0;
       display: flex;
@@ -254,40 +251,38 @@
       justify-content: center;
       text-align: center;
       padding: 24px;
-      pointer-events: none; /* el fondo es lo principal por ahora */
     }
 
-    .content-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(14px);
+    .home-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px);
       border-radius: 24px;
       padding: 28px 32px;
-      max-width: 620px;
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
-      pointer-events: auto;
+      max-width: 640px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
     }
 
-    .content-title {
-      font-size: clamp(34px, 4vw, 46px);
+    .home-title {
+      font-size: clamp(34px, 4.5vw, 48px);
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 14px;
     }
 
-    .content-subtitle {
+    .home-subtitle {
       font-size: 16px;
       color: var(--text-sub);
       margin-bottom: 22px;
     }
 
-    .content-actions {
+    .home-actions {
       display: flex;
       gap: 12px;
       justify-content: center;
     }
 
-    .content-btn {
-      padding: 10px 20px;
+    .home-btn {
+      padding: 10px 22px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -296,43 +291,65 @@
       transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
     }
 
-    .content-btn--filled {
+    .home-btn--primary {
       background: #1c3d5a;
       color: #ffffff;
-      box-shadow: 0 10px 24px rgba(12, 33, 53, 0.4);
+      box-shadow: 0 12px 28px rgba(12, 33, 53, 0.5);
     }
 
-    .content-btn--outline {
+    .home-btn--secondary {
       background: transparent;
       color: #1c3d5a;
-      border: 1px solid rgba(12, 33, 53, 0.4);
-      backdrop-filter: blur(10px);
+      border: 1px solid rgba(12, 33, 53, 0.5);
     }
 
-    .content-btn:hover {
+    .home-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32);
     }
 
     @media (max-width: 768px) {
-      .content-card {
+      .sky-section {
+        height: 70vh;
+      }
+
+      .home-card {
         padding: 22px 20px;
         border-radius: 20px;
       }
 
-      .content-actions {
+      .home-actions {
         flex-direction: column;
       }
+    }
+
+    /* Sección siguiente (para que veas el blur funcionar) */
+
+    .below-section {
+      position: relative;
+      width: 100%;
+      min-height: 400px;
+      background: #ffffff;
+      padding: 40px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .below-placeholder {
+      max-width: 720px;
+      text-align: center;
+      color: #444444;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
-  <div class="sky-scene">
-    <!-- Cielo y sol -->
-    <div class="sun"></div>
+  <!-- HOME con cielo realista animado -->
+  <section class="sky-section">
     <div class="sky-overlay"></div>
 
-    <!-- Nubes animadas -->
+    <!-- Nubes -->
     <div class="cloud cloud-1"></div>
     <div class="cloud cloud-2"></div>
     <div class="cloud cloud-3"></div>
@@ -342,21 +359,33 @@
     <div class="bird bird-2"></div>
     <div class="bird bird-3"></div>
 
-    <!-- Contenido del home (placeholder) -->
-    <div class="content-wrapper">
-      <div class="content-card">
-        <h1 class="content-title">
-          Animated Sky Home
+    <!-- Blur / niebla al final de la sección -->
+    <div class="sky-fog"></div>
+
+    <!-- Contenido del home (puedes cambiar el texto a Systro) -->
+    <div class="home-content">
+      <div class="home-card">
+        <h1 class="home-title">
+          A calm, living sky for your homepage
         </h1>
-        <p class="content-subtitle">
-          Replace this text and buttons with Systro's message. The sky, clouds and birds are fully animated in CSS.
+        <p class="home-subtitle">
+          Replace this text with Systro's message. The background is a realistic animated sky,
+          with soft clouds and birds moving slowly to create a sense of peace.
         </p>
-        <div class="content-actions">
-          <button class="content-btn content-btn--filled">Primary CTA</button>
-          <button class="content-btn content-btn--outline">Secondary CTA</button>
+        <div class="home-actions">
+          <button class="home-btn home-btn--primary">Primary CTA</button>
+          <button class="home-btn home-btn--secondary">Secondary CTA</button>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Sección siguiente (solo ejemplo para ver el blur) -->
+  <section class="below-section">
+    <div class="below-placeholder">
+      Aquí empieza tu siguiente sección (ABOUT, SERVICES, etc.).<br>
+      El borde superior se ve ligeramente difuminado por la niebla del cielo.
+    </div>
+  </section>
 </body>
 </html>
