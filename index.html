@@ -4,21 +4,23 @@
   <meta charset="UTF-8" />
   <title>Systro Solutions – Business Growth & Efficiency Experts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Usa una fuente similar (ej. Inter / SF style) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg-overlay: rgba(0, 0, 0, 0.12);
-      --text-main: #111111;
-      --text-sub: #444444;
-      --btn-bg: #111111;
+      --bg-overlay: rgba(9, 46, 75, 0.25);
+      --text-main: #0b213b;
+      --text-sub: #34556f;
+      --btn-bg: #0b213b;
       --btn-text: #ffffff;
       --chip-bg: rgba(255, 255, 255, 0.9);
-      --stats-bg: rgba(20, 20, 20, 0.85);
+      --stats-bg: rgba(7, 32, 54, 0.92);
       --stats-text-main: #ffffff;
-      --stats-text-sub: #b3b3b3;
+      --stats-text-sub: #b3c6d5;
+      --accent-green: #3bbf7c;
     }
 
     * {
@@ -38,7 +40,8 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background-image: url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80'); /* cielo / paisaje calmado */
+      /* Fondo cielo con nubes */
+      background-image: url('https://images.unsplash.com/photo-1479688895406-3f032f15f0ef?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -59,27 +62,12 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center; /* menú centrado */
       padding: 18px 64px;
     }
 
     .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: #ff5533; /* placeholder logo color */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 700;
-      font-size: 18px;
+      display: none; /* ocultamos logo para centrar completamente el menú */
     }
 
     .nav-links {
@@ -90,43 +78,14 @@
     }
 
     .nav-link {
-      color: #111111;
+      color: #0b213b;
       text-decoration: none;
       font-weight: 500;
     }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .nav-link:hover {
+      color: var(--accent-green);
     }
-
-    .nav-btn {
-      border-radius: 999px;
-      padding: 10px 18px;
-      font-size: 14px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-    }
-
-    .nav-btn--ghost {
-      background: rgba(255, 255, 255, 0.85);
-      color: #111111;
-    }
-
-    .nav-btn--primary {
-      background: #111111;
-      color: #ffffff;
-    }
-
-    .nav-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
-    }
-
-    /* HERO CONTENT */
 
     .hero-content {
       position: relative;
@@ -139,53 +98,18 @@
       padding: 40px 24px 120px;
     }
 
-    .hero-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--chip-bg);
-      backdrop-filter: blur(12px);
-      margin-bottom: 26px;
-      font-size: 13px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    .hero-chip-avatars {
-      display: flex;
-    }
-
-    .hero-chip-avatar {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: #ff5533;
-      border: 2px solid #ffffff;
-      margin-left: -8px;
-    }
-
-    .hero-chip-avatar:first-child {
-      margin-left: 0;
-    }
-
-    .hero-chip-text {
-      color: #222222;
-      font-weight: 500;
-    }
-
     .hero-title {
       font-size: clamp(40px, 6vw, 64px);
       line-height: 1.1;
       font-weight: 700;
-      color: #111111;
+      color: #0b213b;
       margin-bottom: 16px;
     }
 
     .hero-subtitle {
       font-size: 18px;
       color: var(--text-sub);
-      max-width: 480px;
+      max-width: 520px;
       margin-bottom: 28px;
     }
 
@@ -240,6 +164,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       margin-bottom: 6px;
+      color: var(--accent-green);
     }
 
     .stats-description {
@@ -268,9 +193,15 @@
     }
 
     .stats-item-value {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .stats-item-number {
       font-size: 20px;
       font-weight: 600;
-      margin-bottom: 2px;
+      color: #ffffff;
     }
 
     @media (max-width: 900px) {
@@ -279,7 +210,8 @@
       }
 
       .nav-links {
-        display: none; /* versión simplificada para móvil */
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .stats-bar {
@@ -308,45 +240,29 @@
 
     <!-- NAVBAR -->
     <header class="navbar">
-      <div class="nav-left">
-        <div class="brand-logo">
-          S
-        </div>
-        <!-- Si quieres, aquí puedes poner el texto del brand -->
-      </div>
       <nav class="nav-links">
-        <a href="#club" class="nav-link">Club</a>
-        <a href="#resources" class="nav-link">Resources</a>
-        <a href="#app" class="nav-link">App</a>
-        <a href="#family-office" class="nav-link">Family office</a>
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#services" class="nav-link">SERVICES</a>
+        <a href="#assessment" class="nav-link">SYSTRO ASSESSMENT</a>
+        <a href="#program" class="nav-link">PROGRAM</a>
+        <a href="#resources" class="nav-link">FREE RESOURCES</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
       </nav>
-      <div class="nav-right">
-        <button class="nav-btn nav-btn--ghost">Sign in</button>
-        <button class="nav-btn nav-btn--primary">Become a member</button>
-      </div>
     </header>
 
     <!-- HERO -->
     <main class="hero-content">
-      <div class="hero-chip">
-        <div class="hero-chip-avatars">
-          <div class="hero-chip-avatar"></div>
-          <div class="hero-chip-avatar"></div>
-          <div class="hero-chip-avatar"></div>
-          <div class="hero-chip-avatar"></div>
-        </div>
-        <span class="hero-chip-text">400+ tech investors join the club. Join us!</span>
-      </div>
-
       <h1 class="hero-title">
-        Finance. Freedom. Fellows.
+        We bring fulfillment<br>
+        to your work and your life!
       </h1>
       <p class="hero-subtitle">
-        Private club of top tech investors.
+        Systro Solutions helps small business owners become purposefully profitable
+        with clear strategy and streamlined organization.
       </p>
 
       <button class="hero-cta">
-        Become a member
+        CONTACT
       </button>
     </main>
 
@@ -361,30 +277,57 @@
 
       <div class="stats-items">
         <div class="stats-item">
-          <p class="stats-item-label">Purposefully</p>
+          <p class="stats-item-label">PURPOSEFULLY</p>
           <p class="stats-item-value">Profitable Businesses</p>
-          <p class="stats-description">500+</p>
+          <p class="stats-item-number" data-target="500">0</p>
         </div>
 
         <div class="stats-item">
-          <p class="stats-item-label">Mission mapping</p>
+          <p class="stats-item-label">MISSION MAPPING</p>
           <p class="stats-item-value">Sessions</p>
-          <p class="stats-description">100+</p>
+          <p class="stats-item-number" data-target="100">0</p>
         </div>
 
         <div class="stats-item">
-          <p class="stats-item-label">Satisfaction</p>
+          <p class="stats-item-label">SATISFACTION</p>
           <p class="stats-item-value">Of Our Customers</p>
-          <p class="stats-description">100%</p>
+          <p class="stats-item-number" data-target="100">0</p>
         </div>
 
         <div class="stats-item">
-          <p class="stats-item-label">Collaborations</p>
+          <p class="stats-item-label">COLLABORATIONS</p>
           <p class="stats-item-value">With Expert Service Providers</p>
-          <p class="stats-description">30+</p>
+          <p class="stats-item-number" data-target="30">0</p>
         </div>
       </div>
     </section>
   </div>
+
+  <!-- Script para efecto de números calculando -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const counters = document.querySelectorAll('[data-target]');
+      const duration = 1500; // 1.5s
+
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'), 10);
+        const startTime = performance.now();
+
+        function update(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const value = Math.floor(progress * target);
+          counter.textContent = value.toLocaleString();
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = target.toLocaleString();
+          }
+        }
+
+        requestAnimationFrame(update);
+      });
+    });
+  </script>
 </body>
 </html>
