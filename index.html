@@ -2,25 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Systro Solutions – Purposeful Growth</title>
+  <title>Systro Solutions – Animated Sky Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #ffffff;
-      --text-main: #111111;
-      --text-sub: #4b4b4b;
-      --accent: #111111;
-      --accent-soft: #f5f4ff;
-      --pill-bg: #000000;
-      --pill-text: #ffffff;
-      --card-bg: #ffffff;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.10);
-      --border-soft: #e4e4e7;
+      --sky-top: #74c0ff;
+      --sky-mid: #a5d9ff;
+      --sky-bottom: #f8f9ff;
+      --cloud: #ffffff;
+      --cloud-shadow: rgba(0, 0, 0, 0.06);
+      --sun: #ffe66d;
+      --bird: #1c3d5a;
+      --overlay: rgba(255, 255, 255, 0.15);
+      --text-main: #0b213b;
+      --text-sub: #34556f;
     }
 
     * {
@@ -29,441 +25,338 @@
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* NAVBAR */
-
-    .navbar {
-      width: 100%;
-      padding: 20px 72px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text-sub);
-    }
-
-    .nav-logo {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #111111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .nav-center {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 14px;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-sub);
-      font-weight: 500;
-    }
-
-    .nav-link:hover {
-      color: var(--text-main);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .nav-btn {
-      border-radius: 999px;
-      padding: 10px 18px;
-      font-size: 14px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-    }
-
-    .nav-btn--ghost {
-      background: #ffffff;
-      color: var(--text-main);
-      border: 1px solid var(--border-soft);
-    }
-
-    .nav-btn--primary {
-      background: var(--accent);
-      color: #ffffff;
-    }
-
-    .nav-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-    }
-
-    /* HERO SECTION */
-
-    .hero {
-      padding: 40px 72px 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .hero-title {
-      font-size: clamp(40px, 5vw, 56px);
-      line-height: 1.1;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 18px;
-      max-width: 720px;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: var(--text-sub);
-      max-width: 520px;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-
-    .hero-action-btn {
-      border-radius: 999px;
-      padding: 12px 24px;
-      font-size: 14px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-    }
-
-    .hero-action-btn--filled {
-      background: var(--accent);
-      color: #ffffff;
-    }
-
-    .hero-action-btn--outline {
-      background: #ffffff;
-      color: var(--text-main);
-      border: 1px solid var(--border-soft);
-    }
-
-    .hero-action-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-    }
-
-    /* HERO MOCKUP */
-
-    .hero-mockup-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .hero-mockup {
-      position: relative;
-      width: 880px;
-      max-width: 100%;
-      padding: 32px;
-      border-radius: 32px;
-      background: radial-gradient(circle at top left, #fff7e6 0, #f5f7ff 40%, #fdfdfd 100%);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-    }
-
-    .hero-mockup-main {
-      position: relative;
-      width: 280px;
-      height: 380px;
-      margin: 0 auto;
-      border-radius: 32px;
-      background: #111111;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .hero-mockup-main img {
+    body, html {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    .hero-mockup-main-header {
+    /* Cielo anime */
+
+    .sky-scene {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to bottom,
+        var(--sky-top) 0%,
+        var(--sky-mid) 40%,
+        var(--sky-bottom) 100%);
+      overflow: hidden;
+    }
+
+    .sky-overlay {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #ffffff;
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.4) 0, transparent 50%);
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
 
-    .hero-mockup-main-header-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #ff4b4b;
-    }
+    /* Sol estilo ilustración */
 
-    /* SIDE CARDS */
-
-    .hero-card {
+    .sun {
       position: absolute;
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow: var(--shadow-soft);
-      padding: 16px 18px;
+      top: 8%;
+      left: 14%;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        var(--sun) 0%,
+        #ffd43b 40%,
+        rgba(255, 255, 255, 0) 70%);
+      box-shadow: 0 0 40px rgba(255, 230, 109, 0.9);
+      animation: sunGlow 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes sunGlow {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(1.05); opacity: 1; }
+    }
+
+    /* Nubes animadas */
+
+    .cloud {
+      position: absolute;
+      background: var(--cloud);
+      box-shadow: 0 10px 30px var(--cloud-shadow);
+      border-radius: 40px;
+      opacity: 0.95;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      background: var(--cloud);
+      border-radius: 50px;
+    }
+
+    .cloud.cloud-1 {
+      width: 220px;
+      height: 60px;
+      top: 16%;
+      left: -260px;
+      animation: cloudDrift1 55s linear infinite;
+    }
+
+    .cloud.cloud-1::before {
+      width: 120px;
+      height: 80px;
+      top: -40px;
+      left: 30px;
+    }
+
+    .cloud.cloud-1::after {
+      width: 90px;
+      height: 70px;
+      top: -30px;
+      right: 20px;
+    }
+
+    .cloud.cloud-2 {
+      width: 260px;
+      height: 70px;
+      top: 32%;
+      left: 100%;
+      animation: cloudDrift2 70s linear infinite;
+    }
+
+    .cloud.cloud-2::before {
+      width: 130px;
+      height: 80px;
+      top: -40px;
+      left: 40px;
+    }
+
+    .cloud.cloud-2::after {
+      width: 100px;
+      height: 70px;
+      top: -30px;
+      right: 25px;
+    }
+
+    .cloud.cloud-3 {
+      width: 180px;
+      height: 55px;
+      top: 22%;
+      left: 60%;
+      animation: cloudDrift3 65s linear infinite;
+    }
+
+    .cloud.cloud-3::before {
+      width: 110px;
+      height: 75px;
+      top: -35px;
+      left: 20px;
+    }
+
+    .cloud.cloud-3::after {
+      width: 80px;
+      height: 65px;
+      top: -28px;
+      right: 18px;
+    }
+
+    @keyframes cloudDrift1 {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(140vw); }
+    }
+
+    @keyframes cloudDrift2 {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-140vw); }
+    }
+
+    @keyframes cloudDrift3 {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-120vw); }
+    }
+
+    /* Aves */
+
+    .bird {
+      position: absolute;
+      width: 32px;
+      height: 18px;
+      color: var(--bird);
+    }
+
+    .bird::before,
+    .bird::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 16px 16px 0 0;
+      border-top: 3px solid var(--bird);
+      border-left: 3px solid var(--bird);
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      transform-origin: center bottom;
+    }
+
+    .bird::before {
+      left: 0;
+      transform: rotate(-18deg);
+    }
+
+    .bird::after {
+      right: 0;
+      transform: rotate(18deg);
+    }
+
+    .bird.bird-1 {
+      top: 26%;
+      left: -10%;
+      animation: birdFly1 45s linear infinite;
+    }
+
+    .bird.bird-2 {
+      top: 18%;
+      left: 110%;
+      animation: birdFly2 50s linear infinite;
+    }
+
+    .bird.bird-3 {
+      top: 35%;
+      left: -20%;
+      animation: birdFly3 55s linear infinite;
+    }
+
+    @keyframes birdFly1 {
+      0%   { transform: translateX(0) translateY(0) scale(1); }
+      50%  { transform: translateX(60vw) translateY(-10px) scale(1.05); }
+      100% { transform: translateX(120vw) translateY(5px) scale(1.1); }
+    }
+
+    @keyframes birdFly2 {
+      0%   { transform: translateX(0) translateY(0) scale(0.9); }
+      50%  { transform: translateX(-60vw) translateY(12px) scale(1); }
+      100% { transform: translateX(-120vw) translateY(-6px) scale(1.05); }
+    }
+
+    @keyframes birdFly3 {
+      0%   { transform: translateX(0) translateY(0) scale(0.95); }
+      50%  { transform: translateX(70vw) translateY(10px) scale(1.05); }
+      100% { transform: translateX(140vw) translateY(-5px) scale(1.1); }
+    }
+
+    /* Contenido (para que pongas el home de Systro encima) */
+
+    .content-wrapper {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      font-size: 13px;
-    }
-
-    .hero-card--left-top {
-      top: 34px;
-      left: 24px;
-      width: 180px;
-    }
-
-    .hero-card--left-bottom {
-      bottom: 34px;
-      left: 40px;
-      width: 190px;
-      background: #ffe58f;
-    }
-
-    .hero-card--right-top {
-      top: 34px;
-      right: 24px;
-      width: 190px;
-      background: #dcfce7;
-    }
-
-    .hero-card--right-bottom {
-      bottom: 34px;
-      right: 40px;
-      width: 180px;
-    }
-
-    .hero-card-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-sub);
-    }
-
-    .hero-card-value {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .hero-card-extra {
-      font-size: 12px;
-      color: var(--text-sub);
-      display: flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .hero-card-chip {
-      border-radius: 999px;
-      padding: 4px 8px;
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.06);
-      font-size: 11px;
-    }
-
-    /* LOGO ROW */
-
-    .logo-row {
-      width: 100%;
-      padding: 16px 72px 40px;
-      display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
-      border-top: 1px solid var(--border-soft);
+      text-align: center;
+      padding: 24px;
+      pointer-events: none; /* el fondo es lo principal por ahora */
     }
 
-    .logo-row-item {
-      font-size: 14px;
+    .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 28px 32px;
+      max-width: 620px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+      pointer-events: auto;
+    }
+
+    .content-title {
+      font-size: clamp(34px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .content-subtitle {
+      font-size: 16px;
       color: var(--text-sub);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      margin-bottom: 22px;
     }
 
-    @media (max-width: 900px) {
-      .navbar {
-        padding: 16px 20px;
-        flex-wrap: wrap;
-        gap: 12px;
+    .content-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .content-btn {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+
+    .content-btn--filled {
+      background: #1c3d5a;
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(12, 33, 53, 0.4);
+    }
+
+    .content-btn--outline {
+      background: transparent;
+      color: #1c3d5a;
+      border: 1px solid rgba(12, 33, 53, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .content-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .content-card {
+        padding: 22px 20px;
+        border-radius: 20px;
       }
 
-      .nav-center {
-        display: none;
-      }
-
-      .hero {
-        padding: 32px 20px 40px;
-      }
-
-      .hero-mockup {
-        padding: 24px;
-        border-radius: 24px;
-      }
-
-      .hero-mockup-main {
-        width: 220px;
-        height: 320px;
-      }
-
-      .hero-card--left-top,
-      .hero-card--left-bottom,
-      .hero-card--right-top,
-      .hero-card--right-bottom {
-        display: none; /* opcional: ocultar tarjetas en mobile */
-      }
-
-      .logo-row {
-        padding: 16px 20px 32px;
+      .content-actions {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="sky-scene">
+    <!-- Cielo y sol -->
+    <div class="sun"></div>
+    <div class="sky-overlay"></div>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="nav-left">
-        <div class="nav-logo">S</div>
-        <span>/ hello@systrosolutions.com</span>
-      </div>
+    <!-- Nubes animadas -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
 
-      <nav class="nav-center">
-        <a href="#products" class="nav-link">Products</a>
-        <a href="#stories" class="nav-link">Customer Stories</a>
-        <a href="#resources" class="nav-link">Resources</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-      </nav>
+    <!-- Aves -->
+    <div class="bird bird-1"></div>
+    <div class="bird bird-2"></div>
+    <div class="bird bird-3"></div>
 
-      <div class="nav-right">
-        <button class="nav-btn nav-btn--ghost">Book a Demo</button>
-        <button class="nav-btn nav-btn--primary">Get Started</button>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-      <h1 class="hero-title">
-        AI-Driven Conversion<br>
-        Growth Right Away
-      </h1>
-      <p class="hero-subtitle">
-        From concept to conversion — manage thousands of successful campaigns seamlessly.
-      </p>
-
-      <div class="hero-actions">
-        <button class="hero-action-btn hero-action-btn--filled">
-          Download Free App
-        </button>
-        <button class="hero-action-btn hero-action-btn--outline">
-          Get Started Free
-        </button>
-      </div>
-
-      <!-- MOCKUP -->
-      <div class="hero-mockup-wrapper">
-        <div class="hero-mockup">
-          <!-- Main phone/card -->
-          <div class="hero-mockup-main">
-            <div class="hero-mockup-main-header">
-              <span class="hero-mockup-main-header-dot"></span>
-              <span>Live campaign</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Main mockup">
-          </div>
-
-          <!-- Side cards -->
-          <div class="hero-card hero-card--left-top">
-            <span class="hero-card-label">Engagement</span>
-            <span class="hero-card-value">40%</span>
-            <div class="hero-card-extra">
-              <div class="hero-card-chip">Performance ↑</div>
-            </div>
-          </div>
-
-          <div class="hero-card hero-card--left-bottom">
-            <span class="hero-card-label">Rating</span>
-            <span class="hero-card-value">★★★★★</span>
-            <div class="hero-card-extra">
-              <span>Audience love</span>
-            </div>
-          </div>
-
-          <div class="hero-card hero-card--right-top">
-            <span class="hero-card-label">Items</span>
-            <span class="hero-card-value">8 sold</span>
-            <div class="hero-card-extra">
-              <span>$12 each</span>
-            </div>
-          </div>
-
-          <div class="hero-card hero-card--right-bottom">
-            <span class="hero-card-label">Followers</span>
-            <span class="hero-card-value">1.5k</span>
-            <div class="hero-card-extra">
-              <span>Growing weekly</span>
-            </div>
-          </div>
+    <!-- Contenido del home (placeholder) -->
+    <div class="content-wrapper">
+      <div class="content-card">
+        <h1 class="content-title">
+          Animated Sky Home
+        </h1>
+        <p class="content-subtitle">
+          Replace this text and buttons with Systro's message. The sky, clouds and birds are fully animated in CSS.
+        </p>
+        <div class="content-actions">
+          <button class="content-btn content-btn--filled">Primary CTA</button>
+          <button class="content-btn content-btn--outline">Secondary CTA</button>
         </div>
       </div>
-
-      <!-- LOGO ROW -->
-      <div class="logo-row">
-        <span class="logo-row-item">HEIRESS</span>
-        <span class="logo-row-item">TOZO</span>
-        <span class="logo-row-item">HELLBABES</span>
-        <span class="logo-row-item">COCOKIND</span>
-        <span class="logo-row-item">OXYFRESH</span>
-        <span class="logo-row-item">DOT &amp; KEY</span>
-        <span class="logo-row-item">BELLEFIT</span>
-        <span class="logo-row-item">AMAZING LACE</span>
-      </div>
-    </section>
+    </div>
   </div>
 </body>
 </html>
