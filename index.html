@@ -12,12 +12,11 @@
   <style>
     :root {
       --black: #050505;
-      --black-soft: #0d0d0d;
       --white: #ffffff;
-      --gray: #cfcfcf;
-      --line: rgba(255,255,255,0.1);
+      --gray: #d9dde2;
       --blue-bar: #1473ff;
       --green: #31c85f;
+      --green-dark: #22a64b;
       --blue-soft: #72a8ff;
       --shadow: 0 18px 60px rgba(0,0,0,0.28);
       --radius-full: 999px;
@@ -37,7 +36,7 @@
       overflow-x: hidden;
     }
 
-    img {
+    img, video {
       display: block;
       max-width: 100%;
       height: auto;
@@ -61,10 +60,34 @@
 
     .hero-shell {
       position: relative;
-      background: var(--black);
+      background: #000000;
       color: var(--white);
-      overflow: visible;
-      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.58) 35%, rgba(0,0,0,0.72) 100%),
+        linear-gradient(to right, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.30) 100%);
     }
 
     .header {
@@ -104,8 +127,11 @@
     .hero {
       position: relative;
       z-index: 4;
-      padding: 56px 0 0;
-      background: var(--black);
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 0 72px;
     }
 
     .hero-inner {
@@ -121,17 +147,19 @@
       line-height: 0.95;
       letter-spacing: -0.05em;
       max-width: 760px;
-      margin: 26px auto 18px;
+      margin: 36px auto 18px;
       color: #f8f9fb;
       text-transform: uppercase;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.45);
     }
 
     .hero-copy {
       max-width: 620px;
-      margin: 0 auto 20px;
+      margin: 0 auto 22px;
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.8;
       color: var(--gray);
+      text-shadow: 0 6px 24px rgba(0,0,0,0.42);
     }
 
     .hero-btn {
@@ -153,72 +181,15 @@
       border: 1px solid rgba(255,255,255,0.5);
     }
 
-    .hero-gallery {
-      position: relative;
-      margin-top: 26px;
-      transform: translateY(8px);
-      z-index: 6;
-    }
-
-    .gallery-row {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr 1.1fr 1fr 0.9fr;
-      align-items: end;
-      gap: 0;
-      min-height: 320px;
-    }
-
-    .gallery-card {
-      position: relative;
-      overflow: hidden;
-      border-right: 1px solid rgba(255,255,255,0.08);
-      background: #171717;
-    }
-
-    .gallery-card:last-child {
-      border-right: none;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: contrast(1.02) saturate(0.88);
-    }
-
-    .gallery-card.tall {
-      height: 265px;
-    }
-
-    .gallery-card.mid {
-      height: 228px;
-    }
-
-    .gallery-card.short {
-      height: 208px;
-    }
-
-    .gallery-overlay-tag {
-      position: absolute;
-      left: 12px;
-      bottom: 12px;
-      padding: 6px 10px;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: var(--radius-full);
-      background: rgba(0,0,0,0.52);
-      color: #ffffff;
-      backdrop-filter: blur(10px);
+    .hero-btn:hover {
+      background: linear-gradient(180deg, #ffffff 0%, #d6d6d6 48%, #f5f5f5 100%);
     }
 
     .transition-white {
       position: relative;
-      margin-top: -110px;
-      padding-top: 180px;
       background: var(--white);
-      z-index: 1;
+      z-index: 6;
+      padding-top: 72px;
     }
 
     .services-preview {
@@ -288,6 +259,11 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .hero {
+        min-height: 78vh;
+        padding: 40px 0 54px;
+      }
+
       .hero-title {
         font-size: clamp(38px, 11vw, 58px);
         margin-top: 22px;
@@ -296,26 +272,6 @@
       .hero-copy {
         font-size: 14px;
       }
-
-      .gallery-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .gallery-card {
-        border-right: none;
-      }
-
-      .gallery-card.tall,
-      .gallery-card.mid,
-      .gallery-card.short {
-        height: 220px;
-      }
-
-      .transition-white {
-        margin-top: -50px;
-        padding-top: 100px;
-      }
     }
   </style>
 </head>
@@ -323,6 +279,14 @@
   <div class="top-bar">BE PURPOSEFULLY PROFITABLE</div>
 
   <div class="hero-shell">
+    <div class="hero-video-wrap">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/7850311-uhd_4000_2160_25fps.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="hero-overlay"></div>
+
     <header class="header">
       <div class="header-inner">
         <nav class="menu" aria-label="Primary navigation">
@@ -349,32 +313,6 @@
         </p>
 
         <a href="#" class="hero-btn">OUR SERVICES</a>
-
-        <section class="hero-gallery" aria-label="Featured visual collage">
-          <div class="gallery-row">
-            <article class="gallery-card short">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80" alt="Professional working scene" width="700" height="900" loading="lazy">
-              <span class="gallery-overlay-tag">Programs</span>
-            </article>
-
-            <article class="gallery-card tall">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80" alt="Business professional portrait" width="700" height="900" loading="lazy">
-            </article>
-
-            <article class="gallery-card mid">
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Team collaboration meeting" width="900" height="700" loading="lazy">
-              <span class="gallery-overlay-tag">Services</span>
-            </article>
-
-            <article class="gallery-card tall">
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=80" alt="Creative planning workspace" width="700" height="900" loading="lazy">
-            </article>
-
-            <article class="gallery-card mid">
-              <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=700&q=80" alt="Professional smiling portrait" width="700" height="900" loading="lazy">
-            </article>
-          </div>
-        </section>
       </div>
     </main>
   </div>
