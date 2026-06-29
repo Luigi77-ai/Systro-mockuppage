@@ -282,6 +282,50 @@
       margin: 0 auto;
     }
 
+    .stage-section {
+      position: relative;
+      width: 100%;
+      background: #ffffff;
+      padding: 32px 0 84px;
+    }
+
+    .stage-visual {
+      position: relative;
+      width: 100%;
+      min-height: 460px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stage-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.02);
+    }
+
+    .stage-content {
+      position: relative;
+      z-index: 2;
+      width: min(980px, calc(100% - 48px));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .stage-title {
+      color: #111111;
+      font-size: clamp(30px, 4.2vw, 58px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      text-align: center;
+      text-shadow: 0 8px 24px rgba(255,255,255,0.55);
+    }
+
     @media (max-width: 1100px) {
       .menu {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -314,6 +358,14 @@
       .value-item {
         font-size: 11px;
         letter-spacing: 0.1em;
+      }
+
+      .stage-visual {
+        min-height: 340px;
+      }
+
+      .stage-title {
+        font-size: clamp(24px, 7vw, 38px);
       }
     }
   </style>
@@ -352,7 +404,7 @@
         </h1>
 
         <p class="hero-copy">
-          Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization.[web:44][web:10]
+          Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization.[web:44]
         </p>
 
         <a href="#" class="hero-btn">OUR SERVICES</a>
@@ -423,7 +475,7 @@
             <h3>SERVICES</h3>
           </div>
           <p>
-            Systro Solutions provides strategy development and organization design for small business training. We offer one-on-one strategy development instruction and organization design tools and training. We work alongside you to create an organization that functions effectively and profitability.[web:44][web:45]
+            Systro Solutions provides strategy development and organization design for small business training. We offer one-on-one strategy development instruction and organization design tools and training. We work alongside you to create an organization that functions effectively and profitability.
           </p>
         </article>
 
@@ -441,6 +493,25 @@
             We implement only those strategies that fit your circumstances. They work because they are unique to your skills, talents, and desires. You are in control of making the adjustments that you believe in.
           </p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage-section">
+    <div class="stage-visual">
+      <img
+        class="stage-image"
+        src="assets/Tips for Selling Your Operation.jpg"
+        alt="Hands shaking to represent partnership and strategy"
+        width="1600"
+        height="900"
+        loading="lazy"
+      />
+
+      <div class="stage-content">
+        <h2 class="stage-title">
+          Systro Solutions Stage One focuses on the Revenue Strategy that gives you control over your financial future.[web:44]
+        </h2>
       </div>
     </div>
   </section>
