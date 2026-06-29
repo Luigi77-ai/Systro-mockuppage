@@ -116,108 +116,6 @@
       to { transform: translateX(-50%); }
     }
 
-    .site-header {
-      position: absolute;
-      inset: 18px 0 auto 0;
-      z-index: 20;
-    }
-
-    .nav-shell {
-      width: var(--container);
-      margin: 0 auto;
-      padding: 14px 18px;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(20px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--white);
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), #5ba3ff);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-family: var(--display);
-      font-size: 20px;
-      letter-spacing: 0.04em;
-      flex: 0 0 auto;
-      box-shadow: 0 10px 30px rgba(20, 99, 255, 0.34);
-    }
-
-    .brand-copy {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-
-    .brand-copy strong {
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .brand-copy span {
-      font-size: 11px;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-top: 6px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.94);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color .2s ease, transform .2s ease;
-    }
-
-    .nav-links a:hover {
-      color: #aecdff;
-      transform: translateY(-1px);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 20px;
-      border-radius: var(--radius-pill);
-      background: var(--white);
-      color: var(--black);
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      flex: 0 0 auto;
-    }
-
     .hero {
       position: relative;
       min-height: 100vh;
@@ -227,8 +125,7 @@
     }
 
     .hero-video-wrap,
-    .hero-overlay,
-    .hero-grid {
+    .hero-overlay {
       position: absolute;
       inset: 0;
     }
@@ -251,43 +148,6 @@
         radial-gradient(circle at 50% 50%, rgba(20,99,255,0.18), transparent 36%),
         linear-gradient(to bottom, rgba(4,7,10,0.74) 0%, rgba(4,7,10,0.52) 35%, rgba(4,7,10,0.84) 100%);
     }
-
-    .hero-grid {
-      z-index: 3;
-      pointer-events: none;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
-      align-items: end;
-      width: var(--container);
-      margin: 0 auto;
-      opacity: 0.9;
-    }
-
-    .hero-card {
-      align-self: stretch;
-      border-radius: 28px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      transform: translateY(var(--offset, 0));
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    }
-
-    .hero-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      min-height: 220px;
-      filter: grayscale(0.1) contrast(1.05);
-    }
-
-    .hero-card:nth-child(1) { --offset: 190px; }
-    .hero-card:nth-child(2) { --offset: 90px; }
-    .hero-card:nth-child(3) { --offset: 150px; }
-    .hero-card:nth-child(4) { --offset: 50px; }
-    .hero-card:nth-child(5) { --offset: 130px; }
-    .hero-card:nth-child(6) { --offset: 210px; }
 
     .hero-content {
       position: relative;
@@ -545,400 +405,399 @@
     .program-copy p {
       margin-top: 18px;
       color: rgba(255,255,255,0.78);
+      line-height: 1.92;
+      max-width: 58ch;
       font-size: 1rem;
-      line-height: 1.95;
-      max-width: 62ch;
     }
 
     .program-visual {
+      position: relative;
       min-height: 100%;
-      background:
-        radial-gradient(circle at 50% 30%, rgba(20,99,255,0.45), transparent 44%),
-        linear-gradient(180deg, #0b1f52 0%, #08101d 100%);
-      position: relative;
+      background: linear-gradient(135deg, rgba(20,99,255,0.22), rgba(20,99,255,0.03));
+      padding: 28px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 34px;
+      align-items: flex-end;
+      justify-content: flex-end;
     }
 
-    .poster-frame {
-      width: min(420px, 100%);
-      aspect-ratio: 0.85 / 1;
+    .poster {
+      width: min(100%, 360px);
+      aspect-ratio: 4 / 5;
       border-radius: 28px;
-      background: #f7f7f2;
-      color: #0b0f14;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.16);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
-    }
-
-    .poster-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(12,15,20,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(12,15,20,0.08) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.45));
-    }
-
-    .poster-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+        url('assets/Tips for Selling Your Operation.jpg') center/cover no-repeat;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 26px;
     }
 
     .poster-badge {
-      color: var(--blue);
+      display: inline-flex;
+      width: fit-content;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      backdrop-filter: blur(12px);
     }
 
-    .poster-big {
+    .poster-title {
       font-family: var(--display);
-      font-size: clamp(3rem, 6vw, 5.2rem);
-      line-height: 0.88;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.9;
       text-transform: uppercase;
-      max-width: 7ch;
+      max-width: 8ch;
     }
 
-    .poster-foot {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: #233041;
-      max-width: 28ch;
-    }
-
-    .program-grid {
+    .program-bottom {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .program-cell {
-      padding: 26px;
+      padding: 28px;
+      min-height: 220px;
       border-right: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 14px;
     }
 
     .program-cell:last-child {
       border-right: none;
     }
 
-    .program-cell strong {
-      display: block;
+    .stat-label {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .program-cell h3 {
       font-family: var(--display);
-      font-size: 1.5rem;
+      font-size: 2rem;
+      line-height: 0.94;
       text-transform: uppercase;
-      margin-bottom: 10px;
       letter-spacing: 0.02em;
     }
 
     .program-cell p {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.72);
       line-height: 1.85;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
 
-    .problem-layout {
+    .problem-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 24px;
+      align-items: stretch;
     }
 
-    .problem-stack,
-    .contrast-card,
-    .who-card,
-    .gain-card,
-    .faq-item,
-    .resource-card,
-    .contact-panel {
+    .problem-panel {
+      border-radius: 30px;
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .problem-image {
+      min-height: 100%;
+      background: linear-gradient(180deg, rgba(20,99,255,0.08), rgba(20,99,255,0.01));
+    }
+
+    .problem-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .problem-stack {
+      padding: 30px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .problem-item {
+      padding: 20px;
+      border-radius: 22px;
+      background: #f5f8ff;
+      border: 1px solid rgba(20,99,255,0.08);
+    }
+
+    .problem-item h3 {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      line-height: 0.96;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
+
+    .problem-item p {
+      color: var(--text);
+      line-height: 1.85;
+      font-size: 0.96rem;
+    }
+
+    .contrast-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .contrast-card {
       border-radius: 28px;
+      padding: 28px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contrast-card.light {
+      background: #ffffff;
+      border: 1px solid rgba(12,15,20,0.08);
+    }
+
+    .contrast-card.dark {
+      background: #0b1019;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contrast-card .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.64;
+    }
+
+    .contrast-card h3 {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin: 18px 0 12px;
+    }
+
+    .contrast-card p {
+      line-height: 1.9;
+      font-size: 0.98rem;
+      color: inherit;
+      opacity: 0.86;
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .who-card {
+      border-radius: 28px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+      min-height: 280px;
+    }
+
+    .who-card h3 {
+      font-family: var(--display);
+      font-size: 1.9rem;
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--blue-2);
+    }
+
+    .who-card p {
+      line-height: 1.88;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .gains-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gain-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,247,252,0.92));
+      border: 1px solid rgba(12,15,20,0.08);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gain-card h3 {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
+
+    .gain-card p {
+      line-height: 1.82;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .faq-item {
+      border-radius: 26px;
+      padding: 24px;
       background: var(--surface);
       border: 1px solid var(--line);
       box-shadow: var(--shadow-lg);
     }
 
-    .problem-stack {
-      padding: 30px;
-    }
-
-    .problem-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .problem-item {
-      display: grid;
-      grid-template-columns: 26px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 14px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .problem-item:first-child {
-      border-top: none;
-      padding-top: 0;
-    }
-
-    .problem-item span {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: rgba(20,99,255,0.1);
-      color: var(--blue);
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      font-size: 12px;
-    }
-
-    .problem-item p,
-    .contrast-card p,
-    .who-card p,
-    .gain-card p,
-    .resource-card p,
-    .contact-panel p {
-      line-height: 1.85;
-      color: var(--text-muted);
-      font-size: 0.98rem;
-    }
-
-    .contrast-card {
-      background: linear-gradient(180deg, #0a0d13, #101827);
-      color: #fff;
-      padding: 30px;
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .contrast-card h3,
-    .who-card h3,
-    .gain-card h3,
-    .resource-card h3,
-    .faq-item h3,
-    .contact-panel h3 {
+    .faq-item h3 {
       font-family: var(--display);
-      font-size: 2rem;
-      line-height: 0.95;
+      font-size: 1.5rem;
+      line-height: 1;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
+      color: var(--blue-2);
     }
 
-    .contrast-card p,
-    .contrast-card li {
-      color: rgba(255,255,255,0.78);
-    }
-
-    .contrast-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-      list-style: none;
-    }
-
-    .contrast-list li {
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      line-height: 1.8;
-    }
-
-    .who-grid,
-    .gains-grid,
-    .resources-grid,
-    .faq-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .who-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .gains-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .faq-item p {
+      line-height: 1.85;
+      font-size: 0.96rem;
+      color: var(--text);
     }
 
     .resources-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .faq-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .who-card,
-    .gain-card,
-    .resource-card,
-    .faq-item {
-      padding: 26px;
-    }
-
-    .who-card .who-num,
-    .gain-card .gain-num,
-    .resource-card .resource-num {
-      display: inline-block;
-      margin-bottom: 14px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
-
-    .timeline {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
     }
 
-    .timeline-step {
+    .resource-card {
+      border-radius: 28px;
       padding: 26px;
-      border-radius: 30px;
-      background: #0b1019;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 100%;
+      background: #ffffff;
+      border: 1px solid rgba(12,15,20,0.08);
+      box-shadow: var(--shadow-lg);
+      min-height: 260px;
     }
 
-    .timeline-step .step-num {
+    .resource-num {
       display: inline-flex;
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
+      width: 42px;
+      height: 42px;
       align-items: center;
       justify-content: center;
-      background: rgba(20,99,255,0.18);
-      color: #b6cfff;
+      border-radius: 14px;
+      background: rgba(20,99,255,0.1);
+      color: var(--blue);
       font-family: var(--display);
-      font-size: 1rem;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .timeline-step h3 {
+    .resource-card h3 {
       font-family: var(--display);
       font-size: 1.9rem;
-      line-height: 0.94;
+      line-height: 0.95;
       text-transform: uppercase;
-      margin-bottom: 12px;
-      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+      color: var(--blue-2);
     }
 
-    .timeline-step p {
-      color: rgba(255,255,255,0.76);
-      line-height: 1.85;
-      font-size: 0.96rem;
-    }
-
-    .stats-band {
-      padding: 26px 0;
-      background: var(--blue);
-      color: var(--white);
-      overflow: hidden;
-    }
-
-    .stats-wrap {
-      width: var(--container);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .stat-card {
-      padding: 22px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-    }
-
-    .stat-value {
-      font-family: var(--display);
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: 0.9;
-      margin-bottom: 8px;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .stat-label {
-      color: rgba(255,255,255,0.82);
-    }
-
-    .cta-section {
-      background: linear-gradient(180deg, #edf3ff 0%, #f6f6f1 100%);
+    .resource-card p {
+      color: var(--text);
+      line-height: 1.88;
+      font-size: 0.97rem;
     }
 
     .contact-panel {
-      padding: 34px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
+      padding: 32px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(20,99,255,0.1), rgba(20,99,255,0.03));
+      border: 1px solid rgba(20,99,255,0.14);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
     }
 
-    .contact-panel h3 {
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      margin-bottom: 12px;
+    .contact-panel h2 {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.9;
+      color: #122033;
+      font-size: 1rem;
     }
 
     .contact-actions {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
-      justify-content: flex-end;
+      gap: 14px;
+      margin-top: 24px;
     }
 
     .btn-blue {
       background: var(--blue);
-      color: var(--white);
-      box-shadow: 0 18px 40px rgba(20,99,255,0.22);
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(20,99,255,0.26);
     }
 
     .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--line);
+      background: rgba(20,99,255,0.08);
+      color: var(--blue);
+      border: 1px solid rgba(20,99,255,0.14);
     }
 
     .footer {
-      padding: 28px 0 40px;
-      background: var(--bg);
+      padding: 26px 0 34px;
+      background: #f0f4fb;
+      border-top: 1px solid rgba(12,15,20,0.06);
     }
 
     .footer-inner {
       width: var(--container);
       margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       flex-wrap: wrap;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
+      align-items: center;
     }
 
     .footer-copy {
       font-size: 12px;
-      text-transform: uppercase;
+      font-weight: 800;
       letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--text-soft);
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(34px);
-      transition: opacity .75s ease, transform .75s ease;
-      will-change: opacity, transform;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
     }
 
     .reveal.in-view {
@@ -946,85 +805,30 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 1200px) {
-      .hero-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .hero-card:nth-child(5),
-      .hero-card:nth-child(6) {
-        display: none;
-      }
-
+    @media (max-width: 1100px) {
+      .section-header,
       .program-top,
-      .problem-layout,
-      .contact-panel {
+      .problem-grid,
+      .contrast-grid {
         grid-template-columns: 1fr;
       }
 
-      .program-grid,
-      .timeline,
-      .stats-wrap {
+      .program-bottom,
+      .services-grid,
+      .who-grid,
+      .resources-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gains-grid,
+      .faq-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 960px) {
-      .nav-shell {
-        border-radius: 26px;
-        padding: 16px;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .nav-links {
-        justify-content: space-between;
-      }
-
-      .hero-title {
-        font-size: clamp(3.4rem, 14vw, 6.8rem);
-      }
-
-      .section-header,
-      .who-grid,
-      .gains-grid,
-      .resources-grid,
-      .faq-grid,
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .program-grid,
-      .timeline,
-      .stats-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-actions {
-        justify-content: flex-start;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .site-header {
-        inset: 12px 0 auto 0;
-      }
-
-      .nav-links {
-        gap: 10px 14px;
-      }
-
-      .nav-links a,
-      .nav-cta {
-        font-size: 11px;
-      }
-
+    @media (max-width: 780px) {
       .hero-content {
         padding: 176px 0 64px;
-      }
-
-      .hero-grid {
-        display: none;
       }
 
       .hero-copy,
@@ -1057,6 +861,34 @@
         padding: 22px;
       }
     }
+
+    @media (max-width: 640px) {
+      .services-grid,
+      .program-bottom,
+      .who-grid,
+      .gains-grid,
+      .faq-grid,
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title,
+      .section-intro h2,
+      .program-copy h2,
+      .contact-panel h2 {
+        font-size: clamp(2.6rem, 14vw, 4.4rem);
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1077,29 +909,6 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="nav-shell">
-      <a href="#hero" class="brand" aria-label="Systro Solutions home">
-        <div class="brand-mark">S</div>
-        <div class="brand-copy">
-          <strong>Systro Solutions</strong>
-          <span>Purposefully Profitable</span>
-        </div>
-      </a>
-
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#assessment">Assessment</a>
-        <a href="#program">Program</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a href="#contact" class="nav-cta">Book Consultation</a>
-    </div>
-  </header>
-
   <section class="hero" id="hero">
     <div class="hero-video-wrap">
       <video class="hero-video" autoplay muted loop playsinline>
@@ -1108,15 +917,6 @@
     </div>
 
     <div class="hero-overlay"></div>
-
-    <div class="hero-grid" aria-hidden="true">
-      <div class="hero-card"><img src="assets/Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization. (2).png" alt="" loading="lazy" width="700" height="900"></div>
-      <div class="hero-card"><img src="assets/Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization. (1).png" alt="" loading="lazy" width="700" height="900"></div>
-      <div class="hero-card"><img src="assets/Tips for Selling Your Operation.jpg" alt="" loading="lazy" width="700" height="900"></div>
-      <div class="hero-card"><img src="assets/Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization. (2).png" alt="" loading="lazy" width="700" height="900"></div>
-      <div class="hero-card"><img src="assets/Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization. (1).png" alt="" loading="lazy" width="700" height="900"></div>
-      <div class="hero-card"><img src="assets/Tips for Selling Your Operation.jpg" alt="" loading="lazy" width="700" height="900"></div>
-    </div>
 
     <div class="hero-content">
       <div class="hero-inner reveal">
@@ -1144,7 +944,7 @@
         <div class="section-intro">
           <h2>Stop Guessing. Start Growing Strategically.</h2>
           <p>
-            Systro Solutions is built around one clear belief: most organizations do not struggle because they lack talent or great services, but because their revenue strategy is fragmented, reactive, and inconsistent. Systro brings structure, strategy, and execution into one growth system so businesses can move from scattered tactics to intentional, scalable revenue performance.[file:110]
+            Systro Solutions is built around one clear belief: most organizations do not struggle because they lack talent or great services, but because their revenue strategy is fragmented, reactive, and inconsistent. Systro brings structure, strategy, and execution into one growth system so businesses can move from scattered tactics to intentional, scalable revenue performance.
           </p>
         </div>
       </div>
@@ -1195,40 +995,41 @@
             <div class="mini-label">Revenue Strategy Development Program</div>
             <h2>From Reactive Growth To Intentional Revenue Performance</h2>
             <p>
-              The Revenue Strategy Development Program helps organizations identify revenue bottlenecks, clarify ideal customer segments, improve pricing and positioning, build scalable sales processes, strengthen retention, and create a measurable revenue roadmap. This is not generic consulting. It is a practical, execution-focused strategy engagement built around business goals, market position, and growth targets.[file:110]
+              The Systro program is designed to help businesses move away from random marketing moves and disconnected tactics toward a more strategic, revenue-oriented system. It focuses on creating a predictable path for profitable growth.
             </p>
           </div>
 
           <div class="program-visual">
-            <div class="poster-frame">
-              <div class="poster-grid"></div>
-              <div class="poster-content">
-                <div class="poster-badge">Purposefully Profitable</div>
-                <div class="poster-big">Revenue Strategy Blueprint</div>
-                <div class="poster-foot">
-                  Clarity. Structure. Positioning. Systems. Leadership alignment. Sustainable growth.
-                </div>
-              </div>
+            <div class="poster">
+              <div class="poster-badge">Systro Solutions</div>
+              <div class="poster-title">Purposefully Profitable</div>
             </div>
           </div>
         </div>
 
-        <div class="program-grid">
+        <div class="program-bottom">
           <div class="program-cell">
-            <strong>Assessment</strong>
-            <p>Deep analysis of current revenue performance, sales processes, marketing alignment, pricing strategy, acquisition channels, and operational readiness.[file:110]</p>
+            <div class="stat-label">01 / Diagnose</div>
+            <h3>Assess The Current Revenue Reality</h3>
+            <p>
+              Identify the structural, strategic, and operational issues that are slowing down growth or preventing profitability from becoming consistent.
+            </p>
           </div>
+
           <div class="program-cell">
-            <strong>Opportunity</strong>
-            <p>Identification of high-impact growth opportunities, untapped market potential, process improvements, revenue leakage, and expansion possibilities.[file:110]</p>
+            <div class="stat-label">02 / Clarify</div>
+            <h3>Create A Stronger Strategic Direction</h3>
+            <p>
+              Replace guesswork with a more coherent plan that aligns the business model, offer, market approach, and growth goals.
+            </p>
           </div>
+
           <div class="program-cell">
-            <strong>Roadmap</strong>
-            <p>A customized plan with priorities, initiatives, targets, execution phases, KPI recommendations, and team alignment strategies.[file:110]</p>
-          </div>
-          <div class="program-cell">
-            <strong>Leadership</strong>
-            <p>Direct collaboration with revenue strategists to align decision-makers around growth priorities and implementation planning.[file:110]</p>
+            <div class="stat-label">03 / Execute</div>
+            <h3>Build Systems That Support Scalable Growth</h3>
+            <p>
+              Strengthen organization, accountability, and implementation so strategy can translate into measurable and sustainable business performance.
+            </p>
           </div>
         </div>
       </div>
@@ -1238,74 +1039,78 @@
   <section class="section" id="assessment">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">The<br>Problem</div>
+        <div class="section-label">Assessment</div>
         <div class="section-intro">
-          <h2>When Revenue Feels Fragmented, Growth Becomes Expensive</h2>
+          <h2>Find The Gaps Before You Try To Scale</h2>
           <p>
-            The documents show that Systro’s audience often faces inconsistent sales, weak positioning, trial-and-error decision-making, wasted marketing spend, and a lack of clarity about how to turn effort into predictable profitability. The web experience should name those pain points directly and then move quickly into the structure of the solution.[file:110][file:109]
+            The Business Readiness Assessment acts as an entry point for identifying weaknesses, bottlenecks, and areas where structure is missing. It helps potential clients understand whether their business is truly prepared for strategic growth.
           </p>
         </div>
       </div>
 
-      <div class="problem-layout">
-        <div class="problem-stack reveal">
-          <h3 class="mega-title" style="font-size:clamp(2.2rem,5vw,4rem);">What’s going wrong now</h3>
-          <div class="problem-list">
-            <div class="problem-item">
-              <span>1</span>
-              <p>Revenue strategy is fragmented, reactive, and inconsistent, which makes growth unpredictable and difficult to scale.[file:110]</p>
-            </div>
-            <div class="problem-item">
-              <span>2</span>
-              <p>Sales performance suffers when there are pipeline gaps, conversion obstacles, weak qualification, and messaging inconsistencies.[file:110]</p>
-            </div>
-            <div class="problem-item">
-              <span>3</span>
-              <p>Teams lose time and money through trial-and-error activity, scattered tactics, and unclear marketing spend.[file:109]</p>
-            </div>
-            <div class="problem-item">
-              <span>4</span>
-              <p>Clients often feel overwhelmed, uncertain, and exhausted because they know they have value but lack a clear path to profitable action.[file:109]</p>
-            </div>
-          </div>
+      <div class="problem-grid">
+        <div class="problem-panel problem-image reveal">
+          <img src="assets/Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization. (1).png" alt="Business strategy assessment visual" loading="lazy" width="1200" height="1500">
         </div>
 
-        <div class="contrast-card reveal">
-          <div>
-            <h3>Stage One Focus</h3>
+        <div class="problem-panel problem-stack">
+          <article class="problem-item reveal">
+            <h3>Lack Of Clear Direction</h3>
             <p>
-              Systro Solutions Stage One focuses on the Revenue Strategy that gives clients control over their financial future by replacing guesswork with a clear, purposeful path to prosperity.[web:44][file:109]
+              Many companies are working hard but not strategically, which creates confusion around priorities, offer positioning, and the real drivers of profitability.
             </p>
-            <ul class="contrast-list">
-              <li>Gain clarity instead of confusion.[file:109]</li>
-              <li>Build control instead of reacting to uncertainty.[file:109]</li>
-              <li>Create systems instead of relying on scattered effort.[file:110][file:109]</li>
-              <li>Improve profitability with strategy, not noise.[file:110]</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn btn-primary" style="margin-top:22px; width:max-content;">Start The Conversation</a>
+          </article>
+
+          <article class="problem-item reveal">
+            <h3>Inconsistent Revenue Generation</h3>
+            <p>
+              Revenue often depends on bursts of effort rather than a stable system, making growth feel unstable and difficult to sustain over time.
+            </p>
+          </article>
+
+          <article class="problem-item reveal">
+            <h3>Operational Misalignment</h3>
+            <p>
+              Even when opportunities exist, businesses may not have the team structure, communication flow, or internal organization needed to support expansion.
+            </p>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="stats-band">
-    <div class="stats-wrap">
-      <div class="stat-card reveal">
-        <div class="stat-value">CLARITY</div>
-        <div class="stat-label">A structured path instead of disconnected initiatives.[file:110]</div>
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Approach</div>
+        <div class="section-intro">
+          <h2>Not More Noise. More Structure.</h2>
+          <p>
+            Systro’s positioning is built around moving clients away from old, reactive, and scattered business habits toward clarity, strategic design, and a more deliberate way of operating.
+          </p>
+        </div>
       </div>
-      <div class="stat-card reveal">
-        <div class="stat-value">CONTROL</div>
-        <div class="stat-label">A stronger sense of direction, purpose, and financial confidence.[file:109]</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-value">SYSTEMS</div>
-        <div class="stat-label">Revenue KPIs, forecasting, accountability, and repeatable process design.[file:110]</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-value">GROWTH</div>
-        <div class="stat-label">A measurable roadmap built for sustainable, scalable performance.[file:110]</div>
+
+      <div class="contrast-grid">
+        <article class="contrast-card light reveal">
+          <div class="kicker">Old Way</div>
+          <div>
+            <h3>Reactive Growth</h3>
+            <p>
+              Random tactics, fragmented messaging, unclear priorities, and effort without a unifying strategy often lead to exhaustion rather than scalable profit.
+            </p>
+          </div>
+        </article>
+
+        <article class="contrast-card dark reveal">
+          <div class="kicker">Systro Way</div>
+          <div>
+            <h3>Purposeful Profitability</h3>
+            <p>
+              Clear strategy, stronger organizational alignment, intentional decision-making, and revenue systems built to support growth that can actually be repeated and sustained.
+            </p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1313,38 +1118,35 @@
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">Who<br>It’s For</div>
+        <div class="section-label">Who It’s For</div>
         <div class="section-intro">
-          <h2>Built For Businesses Ready To Scale With More Intent</h2>
+          <h2>Built For Business Owners Who Need More Than Motivation</h2>
           <p>
-            The program is designed for growth-focused organizations that have potential but lack a clear revenue system, especially small to mid-sized businesses, growth-stage companies, service-based firms, technology firms, B2B organizations, and leadership teams preparing for scale.[file:110]
+            Systro is for businesses that are already moving, already selling, and already trying to grow, but need stronger strategy, clearer systems, and better organization to reach the next level.
           </p>
         </div>
       </div>
 
       <div class="who-grid">
         <article class="who-card reveal">
-          <div class="who-num">01</div>
-          <h3>Growth Stage Companies</h3>
-          <p>Organizations that need stronger go-to-market clarity, more consistent sales, and a strategic roadmap for the next phase of growth.[file:110]</p>
+          <h3>Founders In Growth Mode</h3>
+          <p>
+            Business owners who have traction but need more strategic clarity to avoid plateauing or scaling inefficiently.
+          </p>
         </article>
 
         <article class="who-card reveal">
-          <div class="who-num">02</div>
-          <h3>Service-Based Businesses</h3>
-          <p>Businesses that need stronger positioning, better pricing logic, and a more effective process for client acquisition and retention.[file:110][file:109]</p>
+          <h3>Teams With Operational Friction</h3>
+          <p>
+            Organizations where execution is slowed down by role confusion, poor structure, or disconnected internal processes.
+          </p>
         </article>
 
         <article class="who-card reveal">
-          <div class="who-num">03</div>
-          <h3>B2B And Tech Firms</h3>
-          <p>Companies that need tighter alignment between marketing, operations, sales, and leadership so revenue growth becomes more measurable.[file:110]</p>
-        </article>
-
-        <article class="who-card reveal">
-          <div class="who-num">04</div>
-          <h3>Leaders In Transition</h3>
-          <p>Experienced professionals or founders who know they have valuable skills but need a revenue strategy to convert that value into a purposeful, profitable path.[file:109]</p>
+          <h3>Leaders Seeking Profit With Purpose</h3>
+          <p>
+            Companies that want to build revenue intentionally rather than simply increasing activity without alignment or direction.
+          </p>
         </article>
       </div>
     </div>
@@ -1353,90 +1155,42 @@
   <section class="section section-dark">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">What You<br>Gain</div>
+        <div class="section-label">Outcomes</div>
         <div class="section-intro">
-          <h2>Outcomes People Can Feel And Measure</h2>
+          <h2>What Stronger Strategy Creates</h2>
           <p>
-            The documents repeatedly emphasize that clients are not buying a template or a set of disconnected tactics. They are buying clarity, control, stronger positioning, more consistent sales, measurable systems, and a more confident path to profitability.[file:110][file:109]
+            The Systro model is meant to help businesses become more focused, more aligned, and more capable of generating revenue with less randomness and more control.
           </p>
         </div>
       </div>
 
       <div class="gains-grid">
-        <article class="gain-card reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
-          <div class="gain-num">01</div>
-          <h3 style="color:#fff;">Clear Revenue Growth Plan</h3>
-          <p style="color:rgba(255,255,255,0.76);">A structured strategy customized to the business model, industry, and goals, with no more scattered tactics or disconnected initiatives.[file:110]</p>
-        </article>
-
-        <article class="gain-card reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
-          <div class="gain-num">02</div>
-          <h3 style="color:#fff;">Better Sales Performance</h3>
-          <p style="color:rgba(255,255,255,0.76);">Improved visibility into sales inefficiencies, pipeline gaps, conversion obstacles, and lead qualification issues across the customer journey.[file:110]</p>
-        </article>
-
-        <article class="gain-card reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
-          <div class="gain-num">03</div>
-          <h3 style="color:#fff;">Stronger Positioning</h3>
-          <p style="color:rgba(255,255,255,0.76);">Sharper value proposition, clearer differentiation, better offer positioning, and more relevant customer targeting.[file:110]</p>
-        </article>
-
-        <article class="gain-card reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
-          <div class="gain-num">04</div>
-          <h3 style="color:#fff;">Scalable Systems</h3>
-          <p style="color:rgba(255,255,255,0.76);">KPIs, forecasting frameworks, process structure, accountability systems, and performance tracking that make growth repeatable.[file:110]</p>
-        </article>
-
-        <article class="gain-card reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
-          <div class="gain-num">05</div>
-          <h3 style="color:#fff;">Clarity And Confidence</h3>
-          <p style="color:rgba(255,255,255,0.76);">A deeper sense of control, documented progress, improved communication of value, and greater confidence in decision-making.[file:109]</p>
-        </article>
-
-        <article class="gain-card reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
-          <div class="gain-num">06</div>
-          <h3 style="color:#fff;">Purposeful Profitability</h3>
-          <p style="color:rgba(255,255,255,0.76);">A purposeful path to prosperity grounded in revenue logic, implementation, and outcomes that align with the client’s goals.[file:109]</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">The<br>Process</div>
-        <div class="section-intro">
-          <h2>A Four-Step Engagement Built For Action</h2>
+        <article class="gain-card reveal">
+          <h3>Clarity</h3>
           <p>
-            Systro’s process is already defined in the program material, which makes it ideal for a strong visual section with rhythm and clarity.[file:110]
+            A better understanding of what to prioritize, what to fix, and where the business should actually be heading.
           </p>
-        </div>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-step reveal">
-          <div class="step-num">01</div>
-          <h3>Discovery & Assessment</h3>
-          <p>Systro analyzes current revenue systems, business challenges, and growth opportunities to understand the real bottlenecks behind performance.[file:110]</p>
         </article>
 
-        <article class="timeline-step reveal">
-          <div class="step-num">02</div>
-          <h3>Strategy Development</h3>
-          <p>A customized revenue strategy is built around business goals, market realities, and the outcomes the leadership team actually wants to achieve.[file:110]</p>
+        <article class="gain-card reveal">
+          <h3>Alignment</h3>
+          <p>
+            Stronger connection between revenue goals, team structure, execution habits, and organizational decision-making.
+          </p>
         </article>
 
-        <article class="timeline-step reveal">
-          <div class="step-num">03</div>
-          <h3>Roadmap Delivery</h3>
-          <p>Clients receive a practical execution roadmap with priorities, measurable objectives, and a more coherent path to profitable growth.[file:110]</p>
+        <article class="gain-card reveal">
+          <h3>Consistency</h3>
+          <p>
+            More repeatable business development and revenue generation instead of depending on isolated wins or bursts of effort.
+          </p>
         </article>
 
-        <article class="timeline-step reveal">
-          <div class="step-num">04</div>
-          <h3>Leadership Alignment</h3>
-          <p>Recommendations are reviewed, questions are answered, and stakeholders are aligned around implementation and forward momentum.[file:110]</p>
+        <article class="gain-card reveal">
+          <h3>Scalability</h3>
+          <p>
+            A business that is more capable of growing intentionally because the systems behind that growth are stronger.
+          </p>
         </article>
       </div>
     </div>
@@ -1449,7 +1203,7 @@
         <div class="section-intro">
           <h2>Content That Reinforces Authority And Clarity</h2>
           <p>
-            The worksheet strongly suggests that Systro should act like a thought leader through educational content, especially around outdated traditional methods, strategic thinking, revenue generation, and purposeful business building.[file:109]
+            The worksheet strongly suggests that Systro should act like a thought leader through educational content, especially around outdated traditional methods, strategic thinking, revenue generation, and purposeful business building.
           </p>
         </div>
       </div>
@@ -1458,19 +1212,19 @@
         <article class="resource-card reveal">
           <div class="resource-num">01</div>
           <h3>Business Readiness Assessment</h3>
-          <p>A strong entry-point offer for visitors who want to understand where they stand before committing to a larger strategic engagement.[file:109][web:50]</p>
+          <p>A strong entry-point offer for visitors who want to understand where they stand before committing to a larger strategic engagement.</p>
         </article>
 
         <article class="resource-card reveal">
           <div class="resource-num">02</div>
           <h3>Message-Making Tools</h3>
-          <p>Messaging and positioning resources that help clients articulate their value, reduce guesswork, and improve communication with prospects.[file:109]</p>
+          <p>Messaging and positioning resources that help clients articulate their value, reduce guesswork, and improve communication with prospects.</p>
         </article>
 
         <article class="resource-card reveal">
           <div class="resource-num">03</div>
           <h3>Thought Leadership Content</h3>
-          <p>Blog posts, webinars, articles, and educational resources that explain why strategy beats tactics and why obsolete methods fail in today’s market.[file:109]</p>
+          <p>Blog posts, webinars, articles, and educational resources that explain why strategy beats tactics and why obsolete methods fail in today’s market.</p>
         </article>
       </div>
     </div>
@@ -1483,7 +1237,7 @@
         <div class="section-intro">
           <h2>Questions That Should Already Be Answered</h2>
           <p>
-            The sales-page document gives a clear FAQ structure, so this section should help reduce friction and move serious prospects toward consultation.[file:110]
+            This section helps reduce friction and move serious prospects toward the assessment or the next strategic step.
           </p>
         </div>
       </div>
@@ -1491,39 +1245,36 @@
       <div class="faq-grid">
         <article class="faq-item reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
           <h3 style="color:#fff;">How long is the program?</h3>
-          <p style="color:rgba(255,255,255,0.76);">Program timelines vary based on business complexity, but most engagements are completed within several weeks.[file:110]</p>
+          <p style="color:rgba(255,255,255,0.76);">Program timelines vary based on business complexity, but most engagements are completed within several weeks.</p>
         </article>
 
         <article class="faq-item reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
           <h3 style="color:#fff;">Is this only for large companies?</h3>
-          <p style="color:rgba(255,255,255,0.76);">No. The program is designed for growth-focused businesses of different sizes, especially those that need a more coherent revenue system.[file:110]</p>
+          <p style="color:rgba(255,255,255,0.76);">No. The program is designed for growth-focused businesses of different sizes, especially those that need a more coherent revenue system.</p>
         </article>
 
         <article class="faq-item reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
           <h3 style="color:#fff;">Will we receive actionable recommendations?</h3>
-          <p style="color:rgba(255,255,255,0.76);">Yes. The engagement is intentionally built to deliver practical strategy and implementation guidance, not abstract theory.[file:110]</p>
+          <p style="color:rgba(255,255,255,0.76);">Yes. The engagement is intentionally built to deliver practical strategy and implementation guidance, not abstract theory.</p>
         </article>
 
         <article class="faq-item reveal" style="background:#0b1019; border-color:rgba(255,255,255,0.08);">
           <h3 style="color:#fff;">Is the strategy customized?</h3>
-          <p style="color:rgba(255,255,255,0.76);">Absolutely. Every strategy is tailored to the organization’s business goals, growth stage, market environment, and operating structure.[file:110]</p>
+          <p style="color:rgba(255,255,255,0.76);">Yes. Systro’s positioning is based on aligning strategy with each business owner’s circumstances, strengths, and desired outcomes.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section cta-section" id="contact">
+  <section class="section" id="contact">
     <div class="container">
       <div class="contact-panel reveal">
-        <div>
-          <h3>Ready To Build A Smarter Revenue Strategy?</h3>
-          <p>
-            Growth does not happen by accident. It happens through clarity, structure, and execution. Systro Solutions helps businesses move from reactive growth to intentional, scalable revenue performance.[file:110]
-          </p>
-        </div>
+        <h2>Build A More Purposefully Profitable Business</h2>
+        <p>
+          Growth does not happen by accident. It happens through clarity, structure, and execution. Systro Solutions helps businesses move from reactive growth to intentional, scalable revenue performance.
+        </p>
 
         <div class="contact-actions">
-          <a href="#" class="btn btn-blue">Book A Consultation</a>
           <a href="#assessment" class="btn btn-ghost">View Assessment</a>
         </div>
       </div>
