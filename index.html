@@ -11,14 +11,15 @@
 
   <style>
     :root {
-      --bg: #121212;
-      --bg-soft: #171717;
+      --bg: #0f1720;
+      --bg-soft: #16212d;
       --line: rgba(255,255,255,0.08);
-      --text: #f5f1e8;
-      --muted: rgba(245,241,232,0.68);
-      --accent: #f47c20;
-      --accent-2: #ff9b47;
+      --text: #f5f7fa;
+      --muted: rgba(245,247,250,0.72);
+      --accent: #4f8f6b;
+      --accent-2: #5fa7c8;
       --white: #ffffff;
+      --gray: #cfd6dc;
       --shadow: 0 18px 60px rgba(0,0,0,0.28);
       --radius-full: 999px;
       --radius-lg: 24px;
@@ -38,7 +39,7 @@
 
     body {
       font-family: "Inter", system-ui, sans-serif;
-      background: #0f0f0f;
+      background: #0b1118;
       color: var(--text);
     }
 
@@ -51,13 +52,6 @@
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-      border: none;
-      background: none;
-      cursor: pointer;
     }
 
     .container {
@@ -80,8 +74,8 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 50% 20%, rgba(244,124,32,0.16), transparent 20%),
-        linear-gradient(to bottom, #161616 0%, #101010 100%);
+        radial-gradient(circle at 50% 20%, rgba(95,167,200,0.12), transparent 22%),
+        linear-gradient(to bottom, #14202b 0%, #0f1720 100%);
       min-height: 100vh;
     }
 
@@ -93,7 +87,7 @@
         linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
       background-size: 120px 120px;
-      opacity: 0.28;
+      opacity: 0.22;
       pointer-events: none;
     }
 
@@ -115,13 +109,16 @@
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
       justify-content: flex-start;
+      flex-wrap: wrap;
     }
 
     .nav-left a {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .nav-left a:hover {
@@ -141,16 +138,6 @@
     .nav-right {
       display: flex;
       justify-content: flex-end;
-    }
-
-    .nav-cta {
-      color: var(--accent);
-      border: 1px solid rgba(244,124,32,0.5);
-      border-radius: var(--radius-full);
-      padding: 9px 18px;
-      font-size: 12px;
-      font-weight: 600;
-      background: rgba(244,124,32,0.06);
     }
 
     .hero {
@@ -191,6 +178,7 @@
       height: 18px;
       right: 18%;
       top: 28px;
+      background: var(--accent-2);
     }
 
     .shape-top {
@@ -200,6 +188,7 @@
       transform: translateX(-50%);
       top: 0;
       border-radius: 999px;
+      background: var(--accent-2);
       filter: blur(0.2px);
     }
 
@@ -208,7 +197,7 @@
       position: absolute;
       width: 30px;
       height: 14px;
-      background: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.48);
       border-radius: 999px 999px 0 0;
     }
 
@@ -224,20 +213,20 @@
 
     .hero-title {
       font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(52px, 7vw, 94px);
-      line-height: 0.92;
+      font-size: clamp(46px, 7vw, 88px);
+      line-height: 0.95;
       letter-spacing: -0.05em;
-      max-width: 620px;
+      max-width: 760px;
       margin: 0 auto 18px;
-      color: #f8f3e8;
+      color: #f8f9fb;
     }
 
     .hero-copy {
-      max-width: 460px;
+      max-width: 540px;
       margin: 0 auto 20px;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.7;
-      color: var(--muted);
+      color: var(--gray);
     }
 
     .hero-btn {
@@ -251,7 +240,9 @@
       color: #ffffff;
       font-size: 12px;
       font-weight: 700;
+      letter-spacing: 0.04em;
       box-shadow: var(--shadow);
+      text-transform: uppercase;
     }
 
     .hero-btn:hover {
@@ -276,7 +267,7 @@
       position: relative;
       overflow: hidden;
       border-right: 1px solid rgba(255,255,255,0.08);
-      background: #1a1a1a;
+      background: #1a1f25;
     }
 
     .gallery-card:last-child {
@@ -287,7 +278,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: contrast(1.02) saturate(0.94);
+      filter: contrast(1.02) saturate(0.9);
     }
 
     .gallery-card.tall {
@@ -311,7 +302,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border-radius: var(--radius-full);
-      background: rgba(0,0,0,0.54);
+      background: rgba(10,15,20,0.58);
       color: #ffffff;
       backdrop-filter: blur(10px);
     }
@@ -322,7 +313,7 @@
       right: 0;
       bottom: 0;
       height: 120px;
-      background: linear-gradient(to bottom, rgba(15,15,15,0) 0%, rgba(15,15,15,0.95) 100%);
+      background: linear-gradient(to bottom, rgba(11,17,24,0) 0%, rgba(11,17,24,0.95) 100%);
       pointer-events: none;
     }
 
@@ -338,7 +329,7 @@
       }
 
       .hero-title {
-        max-width: 8ch;
+        max-width: 10ch;
       }
 
       .gallery-row {
@@ -360,9 +351,8 @@
       }
 
       .nav-left {
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 12px 18px;
+        gap: 12px 16px;
       }
 
       .hero {
@@ -370,11 +360,12 @@
       }
 
       .hero-title {
-        font-size: clamp(42px, 14vw, 64px);
+        font-size: clamp(40px, 13vw, 60px);
+        max-width: 100%;
       }
 
       .hero-copy {
-        font-size: 12px;
+        font-size: 13px;
       }
 
       .gallery-row {
@@ -396,18 +387,19 @@
     <header class="site-header">
       <div class="header-inner">
         <nav class="nav-left" aria-label="Primary navigation">
-          <a href="#">About</a>
-          <a href="#">Core Solutions</a>
-          <a href="#">Contact</a>
+          <a href="#">ABOUT</a>
+          <a href="#">SERVICES</a>
+          <a href="#">SYSTRO ASSESSMENT</a>
+          <a href="#">PROGRAM</a>
+          <a href="#">FREE RESOURCES</a>
+          <a href="#">CONTACT</a>
         </nav>
 
         <a href="#" class="logo" aria-label="Systro Solutions">
           Systro
         </a>
 
-        <div class="nav-right">
-          <a href="#" class="nav-cta">Sign in</a>
-        </div>
+        <div class="nav-right"></div>
       </div>
     </header>
 
@@ -422,17 +414,16 @@
         </div>
 
         <h1 class="hero-title">
-          Create<br>
-          High-Quality<br>
-          Visual
+          We bring fulfillment<br>
+          To your work and your<br>
+          life
         </h1>
 
         <p class="hero-copy">
-          Developing purpose-driven business systems with strategic clarity,
-          stronger organization, and a more profitable path forward.
+          Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization.
         </p>
 
-        <a href="#" class="hero-btn">Book A Call</a>
+        <a href="#" class="hero-btn">OUR SERVICES</a>
 
         <section class="hero-gallery" aria-label="Featured visual collage">
           <div class="gallery-row">
