@@ -1,55 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Systro Solutions — Purposefully Profitable</title>
+  <title>Systro Solutions — Home</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root,
-    [data-theme="light"] {
-      --bg: #e4ecc5;
-      --surface: rgba(255, 255, 255, 0.56);
-      --surface-strong: rgba(255, 255, 255, 0.72);
-      --text: #121212;
-      --muted: #4e5541;
-      --line: rgba(18, 18, 18, 0.14);
-      --accent: #111111;
-      --accent-2: #2e3b22;
-
-      --font-display: "Instrument Serif", Georgia, serif;
-      --font-body: "Inter", system-ui, sans-serif;
-
-      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.82rem + 0.2vw, 1rem);
-      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.35rem);
-      --text-2xl: clamp(2.3rem, 1.5rem + 2.4vw, 4.75rem);
-
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-10: 2.5rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-20: 5rem;
-      --space-24: 6rem;
-
-      --radius-md: 0.75rem;
-      --radius-lg: 1.2rem;
-      --radius-xl: 1.6rem;
+    :root {
+      --bg: #121212;
+      --bg-soft: #171717;
+      --line: rgba(255,255,255,0.08);
+      --text: #f5f1e8;
+      --muted: rgba(245,241,232,0.68);
+      --accent: #f47c20;
+      --accent-2: #ff9b47;
+      --white: #ffffff;
+      --shadow: 0 18px 60px rgba(0,0,0,0.28);
       --radius-full: 999px;
-
-      --shadow-lg: 0 20px 50px rgba(18, 18, 18, 0.12);
-      --transition: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --container: min(1180px, calc(100% - 32px));
     }
 
     * {
@@ -63,18 +37,15 @@
     }
 
     body {
-      min-height: 100vh;
-      background: var(--bg);
+      font-family: "Inter", system-ui, sans-serif;
+      background: #0f0f0f;
       color: var(--text);
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      line-height: 1.6;
     }
 
-    img,
-    svg {
+    img {
       display: block;
       max-width: 100%;
+      height: auto;
     }
 
     a {
@@ -90,1032 +61,407 @@
     }
 
     .container {
-      width: min(1180px, calc(100% - 2rem));
+      width: var(--container);
       margin: 0 auto;
     }
 
-    .section {
-      padding: clamp(4rem, 8vw, 7rem) 0;
-    }
-
-    .eyebrow {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: var(--space-4);
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      margin-bottom: var(--space-4);
-    }
-
-    .section-copy {
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: var(--text-base);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 0.95rem 1.35rem;
-      border-radius: var(--radius-full);
-      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
-      min-height: 44px;
-    }
-
-    .btn-primary {
-      background: var(--accent);
+    .top-bar {
+      background: #000000;
       color: #ffffff;
-      box-shadow: var(--shadow-lg);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
+    .site-shell {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(244,124,32,0.16), transparent 20%),
+        linear-gradient(to bottom, #161616 0%, #101010 100%);
+      min-height: 100vh;
     }
 
-    .btn-secondary {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.45);
-      color: var(--text);
-      backdrop-filter: blur(10px);
+    .site-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 120px 120px;
+      opacity: 0.28;
+      pointer-events: none;
     }
 
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(16px);
-      background: rgba(228, 236, 197, 0.72);
-      border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+      position: relative;
+      z-index: 3;
+      padding: 18px 0 8px;
     }
 
     .header-inner {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-6);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid rgba(18,18,18,0.18);
+      width: var(--container);
+      margin: 0 auto;
       display: grid;
-      place-items: center;
-      font-size: 0.9rem;
-      background: rgba(255,255,255,0.45);
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
     }
 
-    .nav {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 1.4rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 24px;
+      justify-content: flex-start;
     }
 
-    .nav a {
-      font-size: var(--text-sm);
+    .nav-left a {
+      font-size: 13px;
       color: var(--muted);
     }
 
-    .nav a:hover {
-      color: var(--text);
+    .nav-left a:hover {
+      color: var(--white);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .nav-cta {
+      color: var(--accent);
+      border: 1px solid rgba(244,124,32,0.5);
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(244,124,32,0.06);
     }
 
     .hero {
       position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.38), transparent 30%),
-        linear-gradient(to bottom, #dfe8bd 0%, #dfe8bd 60%, #f6f5f0 100%);
+      z-index: 2;
+      padding: 34px 0 0;
     }
 
-    .hero-grid {
+    .hero-inner {
+      width: var(--container);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-decor {
       position: relative;
-      z-index: 4;
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: var(--space-16);
-      align-items: center;
-      padding: clamp(5rem, 9vw, 8rem) 0;
+      width: 100%;
+      height: 60px;
+      margin-bottom: 10px;
     }
 
-    .hero-copy {
-      max-width: 560px;
+    .shape {
+      position: absolute;
+      border-radius: 999px 999px 0 0;
+      background: var(--accent);
+      opacity: 0.95;
     }
 
-    .hero-kicker {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--muted);
-      margin-bottom: var(--space-4);
+    .shape-left {
+      width: 40px;
+      height: 22px;
+      left: 17%;
+      top: 18px;
+    }
+
+    .shape-right {
+      width: 34px;
+      height: 18px;
+      right: 18%;
+      top: 28px;
+    }
+
+    .shape-top {
+      width: 94px;
+      height: 54px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      border-radius: 999px;
+      filter: blur(0.2px);
+    }
+
+    .shape-gray-left,
+    .shape-gray-right {
+      position: absolute;
+      width: 30px;
+      height: 14px;
+      background: rgba(255,255,255,0.55);
+      border-radius: 999px 999px 0 0;
+    }
+
+    .shape-gray-left {
+      left: 7%;
+      top: 44px;
+    }
+
+    .shape-gray-right {
+      right: 23%;
+      top: 20px;
     }
 
     .hero-title {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      line-height: 0.97;
-      letter-spacing: -0.04em;
-      margin-bottom: var(--space-5);
-      max-width: 10ch;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(52px, 7vw, 94px);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      max-width: 620px;
+      margin: 0 auto 18px;
+      color: #f8f3e8;
     }
 
-    .hero-title .line {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero-title .line span {
-      display: inline-block;
-      transform: translateY(110%);
-      opacity: 0;
-      animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .hero-title .line:nth-child(2) span {
-      animation-delay: 0.2s;
-    }
-
-    .hero-title .line:nth-child(3) span {
-      animation-delay: 0.4s;
-    }
-
-    .hero-subtitle {
-      max-width: 52ch;
+    .hero-copy {
+      max-width: 460px;
+      margin: 0 auto 20px;
+      font-size: 13px;
+      line-height: 1.7;
       color: var(--muted);
-      margin-bottom: var(--space-8);
     }
 
-    .hero-actions {
-      display: flex;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 620px;
-      display: flex;
+    .hero-btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-height: 42px;
+      padding: 0 20px;
+      border-radius: var(--radius-full);
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
     }
 
-    .hero-panel {
+    .hero-btn:hover {
+      background: var(--accent-2);
+    }
+
+    .hero-gallery {
       position: relative;
-      width: min(660px, 100%);
-      aspect-ratio: 1 / 1.02;
-      border-radius: 2rem;
-      overflow: hidden;
-      background: rgba(255,255,255,0.32);
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(18,18,18,0.08);
+      margin-top: 42px;
+      padding-bottom: 24px;
     }
 
-    .handshake-image {
-      position: absolute;
-      inset: 0;
+    .gallery-row {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr 1.1fr 1fr 0.9fr;
+      align-items: end;
+      gap: 0;
+      min-height: 320px;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      background: #1a1a1a;
+    }
+
+    .gallery-card:last-child {
+      border-right: none;
+    }
+
+    .gallery-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(1) contrast(1.05);
-      mix-blend-mode: multiply;
-      opacity: 0.98;
+      filter: contrast(1.02) saturate(0.94);
     }
 
-    .hero-glow {
+    .gallery-card.tall {
+      height: 255px;
+    }
+
+    .gallery-card.mid {
+      height: 220px;
+    }
+
+    .gallery-card.short {
+      height: 200px;
+    }
+
+    .gallery-overlay-tag {
       position: absolute;
-      inset: auto -10% -12% -10%;
-      height: 180px;
-      background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
-      filter: blur(20px);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .hero-svg {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      overflow: visible;
-    }
-
-    .curve-guide {
-      fill: none;
-      stroke: transparent;
-    }
-
-    .curve-text {
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 14px;
+      left: 12px;
+      bottom: 12px;
+      padding: 6px 10px;
+      font-size: 10px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      fill: #131313;
-    }
-
-    .curve-text textPath {
-      dominant-baseline: middle;
-    }
-
-    .curve-text-wrap {
-      opacity: 0;
-      animation: fadeCurve 0.6s ease forwards 0.5s;
-    }
-
-    .curve-mask {
-      fill: none;
-      stroke: #000;
-      stroke-width: 14;
-      stroke-linecap: round;
-      stroke-dasharray: 1400;
-      stroke-dashoffset: 1400;
-      animation: drawMask 9s linear forwards 0.8s;
-    }
-
-    .hero-note {
-      position: absolute;
-      left: 1.2rem;
-      bottom: 1.2rem;
-      z-index: 5;
-      padding: 0.7rem 0.9rem;
       border-radius: var(--radius-full);
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(18,18,18,0.08);
-      backdrop-filter: blur(14px);
-      font-size: var(--text-xs);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: 1.2fr repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(18,18,18,0.08);
-      border-radius: 1.6rem;
-      overflow: hidden;
-      margin-top: -2rem;
-      position: relative;
-      z-index: 8;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .metric-card {
-      background: rgba(255,255,255,0.72);
-      padding: 1.25rem;
-      backdrop-filter: blur(12px);
-    }
-
-    .metric-intro h3 {
-      font-size: var(--text-sm);
-      margin-bottom: 0.35rem;
-    }
-
-    .metric-intro p,
-    .metric-card p {
-      color: var(--muted);
-      font-size: var(--text-sm);
-    }
-
-    .metric-value {
-      font-size: clamp(1.5rem, 2vw, 2rem);
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-
-    .metric-label {
-      font-size: var(--text-xs);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: var(--space-16);
-      align-items: start;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-5);
-    }
-
-    .card {
-      background: rgba(255,255,255,0.58);
-      border: 1px solid rgba(18,18,18,0.08);
-      border-radius: var(--radius-xl);
-      padding: var(--space-6);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 30px rgba(18,18,18,0.06);
-      transform: translateY(28px);
-      opacity: 0;
-      transition: opacity 700ms ease, transform 700ms ease;
-    }
-
-    .card.reveal-in {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .card h3 {
-      font-size: var(--text-lg);
-      margin-bottom: 0.6rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: var(--text-sm);
-    }
-
-    .about-panel {
-      position: relative;
-      background: rgba(255,255,255,0.56);
-      border: 1px solid rgba(18,18,18,0.08);
-      border-radius: 2rem;
-      padding: clamp(1.6rem, 4vw, 2.2rem);
-      backdrop-filter: blur(14px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .about-meta {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-4);
-      margin-top: var(--space-8);
-    }
-
-    .about-meta-item {
-      padding-top: var(--space-4);
-      border-top: 1px solid rgba(18,18,18,0.1);
-    }
-
-    .assessment-band {
-      background: #111111;
-      color: #f6f5f0;
-      border-radius: 2rem;
-      padding: clamp(2rem, 4vw, 3rem);
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: var(--space-10);
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .assessment-band::after {
-      content: "";
-      position: absolute;
-      inset: auto -10% -30% auto;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.13), transparent 70%);
-      pointer-events: none;
-    }
-
-    .assessment-band p {
-      color: rgba(246,245,240,0.76);
-      max-width: 48ch;
-    }
-
-    .assessment-boxes {
-      display: grid;
-      gap: var(--space-4);
-    }
-
-    .assessment-box {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      padding: 1rem 1.1rem;
-      border-radius: 1rem;
+      background: rgba(0,0,0,0.54);
+      color: #ffffff;
       backdrop-filter: blur(10px);
     }
 
-    .program-steps {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-5);
-      margin-top: var(--space-10);
+    .hero-bottom-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(15,15,15,0) 0%, rgba(15,15,15,0.95) 100%);
+      pointer-events: none;
     }
 
-    .step {
-      background: rgba(255,255,255,0.58);
-      border: 1px solid rgba(18,18,18,0.08);
-      border-radius: 1.5rem;
-      padding: 1.4rem;
-      min-height: 220px;
-      box-shadow: 0 8px 24px rgba(18,18,18,0.05);
-    }
-
-    .step-number {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: var(--space-4);
-    }
-
-    .step h3 {
-      font-size: var(--text-lg);
-      margin-bottom: 0.5rem;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: var(--text-sm);
-    }
-
-    .resources-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-5);
-      margin-top: var(--space-10);
-    }
-
-    .resource {
-      padding: 1.4rem;
-      border-radius: 1.5rem;
-      background: rgba(255,255,255,0.58);
-      border: 1px solid rgba(18,18,18,0.08);
-      box-shadow: 0 8px 24px rgba(18,18,18,0.05);
-    }
-
-    .resource h3 {
-      font-size: var(--text-lg);
-      margin-bottom: 0.45rem;
-    }
-
-    .resource p {
-      color: var(--muted);
-      font-size: var(--text-sm);
-      margin-bottom: var(--space-4);
-    }
-
-    .resource a {
-      font-size: var(--text-sm);
-      font-weight: 600;
-    }
-
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-10);
-      align-items: start;
-    }
-
-    .contact-card,
-    .contact-form {
-      background: rgba(255,255,255,0.64);
-      border: 1px solid rgba(18,18,18,0.08);
-      border-radius: 1.8rem;
-      padding: clamp(1.5rem, 4vw, 2rem);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .contact-form form {
-      display: grid;
-      gap: var(--space-4);
-    }
-
-    .field {
-      display: grid;
-      gap: 0.45rem;
-    }
-
-    .field label {
-      font-size: var(--text-sm);
-      font-weight: 600;
-    }
-
-    .field input,
-    .field textarea {
-      width: 100%;
-      border-radius: 1rem;
-      border: 1px solid rgba(18,18,18,0.14);
-      background: rgba(255,255,255,0.82);
-      padding: 0.95rem 1rem;
-      font: inherit;
-      color: var(--text);
-      resize: vertical;
-      min-height: 48px;
-    }
-
-    .field textarea {
-      min-height: 140px;
-    }
-
-    .footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: var(--text-sm);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(18,18,18,0.1);
-      padding-top: 1.4rem;
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 700ms ease, transform 700ms ease;
-    }
-
-    .fade-up.reveal-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes riseIn {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes drawMask {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    @keyframes fadeCurve {
-      to {
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .split,
-      .assessment-band,
-      .contact-wrap {
+    @media (max-width: 980px) {
+      .header-inner {
         grid-template-columns: 1fr;
+        justify-items: center;
       }
 
-      .hero-copy {
-        max-width: 100%;
+      .nav-left,
+      .nav-right {
+        justify-content: center;
       }
 
       .hero-title {
-        max-width: 12ch;
+        max-width: 8ch;
       }
 
-      .hero-visual {
-        min-height: 560px;
+      .gallery-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
 
-      .metrics {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .metric-intro {
-        grid-column: 1 / -1;
-      }
-
-      .resources-list,
-      .program-steps {
-        grid-template-columns: 1fr;
+      .gallery-card {
+        border-right: none;
+        border-radius: 18px;
+        overflow: hidden;
       }
     }
 
-    @media (max-width: 820px) {
-      .header-inner {
-        padding: 1rem 0;
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 640px) {
+      .top-bar {
+        font-size: 10px;
+        letter-spacing: 0.16em;
       }
 
-      .nav {
-        gap: 0.85rem 1rem;
+      .nav-left {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
       }
 
       .hero {
-        min-height: auto;
-      }
-
-      .hero-grid {
-        gap: var(--space-8);
+        padding-top: 22px;
       }
 
       .hero-title {
-        max-width: 100%;
+        font-size: clamp(42px, 14vw, 64px);
       }
 
-      .hero-visual {
-        min-height: 420px;
+      .hero-copy {
+        font-size: 12px;
       }
 
-      .hero-panel {
-        aspect-ratio: 0.95 / 1.08;
-      }
-
-      .curve-text {
-        font-size: 11px;
-      }
-
-      .card-grid,
-      .about-meta,
-      .contact-wrap,
-      .resources-list {
+      .gallery-row {
         grid-template-columns: 1fr;
       }
 
-      .metrics {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+      .gallery-card.tall,
+      .gallery-card.mid,
+      .gallery-card.short {
+        height: 220px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Systro Solutions home">
-        <span class="brand-mark">SS</span>
-        <span>Systro Solutions</span>
-      </a>
+  <div class="top-bar">BE PURPOSEFULLY PROFITABLE</div>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#assessment">Assessment</a>
-        <a href="#program">Program</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <nav class="nav-left" aria-label="Primary navigation">
+          <a href="#">About</a>
+          <a href="#">Core Solutions</a>
+          <a href="#">Contact</a>
+        </nav>
 
-      <a class="btn btn-secondary" href="#contact">Start here</a>
-    </div>
-  </header>
+        <a href="#" class="logo" aria-label="Systro Solutions">
+          Systro
+        </a>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="hero-kicker">Business growth &amp; efficiency experts</div>
+        <div class="nav-right">
+          <a href="#" class="nav-cta">Sign in</a>
+        </div>
+      </div>
+    </header>
 
-          <h1 class="hero-title">
-            <span class="line"><span>Build a</span></span>
-            <span class="line"><span>business that</span></span>
-            <span class="line"><span>works with you.</span></span>
-          </h1>
+    <main class="hero">
+      <div class="hero-inner">
+        <div class="hero-decor" aria-hidden="true">
+          <span class="shape shape-left"></span>
+          <span class="shape shape-top"></span>
+          <span class="shape shape-right"></span>
+          <span class="shape-gray-left"></span>
+          <span class="shape-gray-right"></span>
+        </div>
 
-          <p class="hero-subtitle">
-            Systro Solutions helps small business owners become purposefully profitable through strategy, organization, and clearer operating structure.[web:44][web:48]
-          </p>
+        <h1 class="hero-title">
+          Create<br>
+          High-Quality<br>
+          Visual
+        </h1>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#assessment">Take the assessment</a>
-            <a class="btn btn-secondary" href="#services">Explore services</a>
+        <p class="hero-copy">
+          Developing purpose-driven business systems with strategic clarity,
+          stronger organization, and a more profitable path forward.
+        </p>
+
+        <a href="#" class="hero-btn">Book A Call</a>
+
+        <section class="hero-gallery" aria-label="Featured visual collage">
+          <div class="gallery-row">
+            <article class="gallery-card short">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80" alt="Professional working scene" width="700" height="900" loading="lazy">
+              <span class="gallery-overlay-tag">Strategy</span>
+            </article>
+
+            <article class="gallery-card tall">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80" alt="Business professional portrait" width="700" height="900" loading="lazy">
+            </article>
+
+            <article class="gallery-card mid">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Team collaboration meeting" width="900" height="700" loading="lazy">
+              <span class="gallery-overlay-tag">Growth</span>
+            </article>
+
+            <article class="gallery-card tall">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=80" alt="Creative planning workspace" width="700" height="900" loading="lazy">
+            </article>
+
+            <article class="gallery-card mid">
+              <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=700&q=80" alt="Professional smiling portrait" width="700" height="900" loading="lazy">
+            </article>
           </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-panel">
-            <img
-              class="handshake-image"
-              src="assets/Tips for Selling Your Operation.jpg"
-              alt="Handshake representing aligned business strategy"
-              width="1600"
-              height="1600"
-              loading="eager"
-            />
-
-            <svg class="hero-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <path id="curveTop" d="M 55 392 C 180 280, 410 270, 520 355 C 620 432, 790 436, 945 360" />
-                <path id="curveBottom" d="M 90 505 C 230 610, 420 632, 545 570 C 675 505, 820 488, 948 548" />
-                <mask id="textRevealMask">
-                  <rect width="100%" height="100%" fill="black"></rect>
-                  <path class="curve-mask" d="M 55 392 C 180 280, 410 270, 520 355 C 620 432, 790 436, 945 360" />
-                  <path class="curve-mask" d="M 90 505 C 230 610, 420 632, 545 570 C 675 505, 820 488, 948 548" />
-                </mask>
-              </defs>
-
-              <path class="curve-guide" d="M 55 392 C 180 280, 410 270, 520 355 C 620 432, 790 436, 945 360" />
-              <path class="curve-guide" d="M 90 505 C 230 610, 420 632, 545 570 C 675 505, 820 488, 948 548" />
-
-              <g class="curve-text-wrap" mask="url(#textRevealMask)">
-                <text class="curve-text">
-                  <textPath href="#curveTop" startOffset="0%">
-                    Systro Solutions helps small business owners become purposefully profitable through strategy and organization.
-                  </textPath>
-                </text>
-
-                <text class="curve-text">
-                  <textPath href="#curveBottom" startOffset="0%">
-                    Systro Solutions helps small business owners become purposefully profitable through strategy and organization.
-                  </textPath>
-                </text>
-              </g>
-            </svg>
-
-            <div class="hero-glow"></div>
-            <div class="hero-note">Strategy • Organization • Profitability</div>
-          </div>
-        </div>
+          <div class="hero-bottom-fade"></div>
+        </section>
       </div>
-    </section>
-
-    <div class="container">
-      <section class="metrics" aria-label="Systro highlights">
-        <div class="metric-card metric-intro">
-          <h3>Let the numbers speak</h3>
-          <p>With enough data, the numbers speak for themselves.</p>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">Purposefully</div>
-          <div class="metric-value">500+</div>
-          <p>Profitable businesses</p>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">Mission mapping</div>
-          <div class="metric-value">100+</div>
-          <p>Sessions</p>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">Satisfaction</div>
-          <div class="metric-value">100%</div>
-          <p>Of our customers</p>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">Collaborations</div>
-          <div class="metric-value">30+</div>
-          <p>With expert service providers</p>
-        </div>
-      </section>
-    </div>
-
-    <section id="about" class="section">
-      <div class="container split">
-        <div class="fade-up">
-          <div class="eyebrow">About</div>
-          <h2 class="section-title">A strategy practice built to help owners lead with clarity.</h2>
-          <p class="section-copy">
-            Systro Solutions positions itself as a business growth and efficiency practice focused on helping small business owners become purposefully profitable through strategy development and organization design.[web:44][web:48]
-          </p>
-        </div>
-
-        <div class="about-panel fade-up">
-          <p>
-            The public company profile highlights Colonel (retired) Russ Barnes as CEO and Senior Strategist, with Systro focused on guiding entrepreneurs and executives through better structure, planning, and operational alignment.[web:10]
-          </p>
-
-          <div class="about-meta">
-            <div class="about-meta-item">
-              <strong>Leadership</strong>
-              <p>Russ Barnes, CEO and Senior Strategist.[web:10]</p>
-            </div>
-
-            <div class="about-meta-item">
-              <strong>Core focus</strong>
-              <p>Strategy development and organization design for small businesses.[web:44][web:45]</p>
-            </div>
-
-            <div class="about-meta-item">
-              <strong>Audience</strong>
-              <p>Entrepreneurs, executives, and small business owners.[web:10][web:54]</p>
-            </div>
-
-            <div class="about-meta-item">
-              <strong>Outcome</strong>
-              <p>Improved profitability through intentional structure and planning.[web:48][web:46]</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <div class="fade-up">
-          <div class="eyebrow">Services</div>
-          <h2 class="section-title">What Systro helps clients build.</h2>
-          <p class="section-copy">
-            Across its public messaging, Systro repeatedly emphasizes strategy, structure, and organization as the core of its service model for owners who want sustainable growth.[web:44][web:46]
-          </p>
-        </div>
-
-        <div class="card-grid" style="margin-top: 2.5rem;">
-          <article class="card">
-            <h3>Strategy development</h3>
-            <p>Systro offers strategy development support to help business owners define direction, priorities, and decision-making frameworks.[web:44][web:45]</p>
-          </article>
-
-          <article class="card">
-            <h3>Organization design</h3>
-            <p>The company also focuses on organization design so the business can operate with clearer roles, systems, and internal alignment.[web:44][web:48]</p>
-          </article>
-
-          <article class="card">
-            <h3>One-on-one instruction</h3>
-            <p>Public descriptions mention one-on-one strategy development instruction as part of how the service is delivered.[web:44]</p>
-          </article>
-
-          <article class="card">
-            <h3>Profitability alignment</h3>
-            <p>The goal is not just growth for growth’s sake, but purposeful profitability built on structure and intention.[web:48][web:46]</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="assessment" class="section">
-      <div class="container">
-        <div class="assessment-band fade-up">
-          <div>
-            <div class="eyebrow" style="color: rgba(246,245,240,0.65);">Assessment</div>
-            <h2 class="section-title" style="margin-bottom: 1rem; color: #f6f5f0;">
-              Start with the readiness assessment.
-            </h2>
-            <p>
-              Systro’s public assessment is positioned as the first critical milestone on the path to profitability, with the goal of helping owners identify current gaps quickly.[web:50]
-            </p>
-          </div>
-
-          <div class="assessment-boxes">
-            <div class="assessment-box">
-              A fast first step for evaluating where the business stands today.[web:50]
-            </div>
-            <div class="assessment-box">
-              Designed to be completed in about five minutes.[web:50]
-            </div>
-            <div class="assessment-box">
-              Built to surface issues before strategy and implementation begin.[web:50]
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="program" class="section">
-      <div class="container">
-        <div class="fade-up">
-          <div class="eyebrow">Program</div>
-          <h2 class="section-title">A guided path from insight to execution.</h2>
-          <p class="section-copy">
-            Based on Systro’s current positioning, the journey can be framed as a progression from diagnosis to strategy to organizational implementation.[web:44][web:45][web:50]
-          </p>
-        </div>
-
-        <div class="program-steps">
-          <article class="step fade-up">
-            <div class="step-number">Step 01</div>
-            <h3>Assess</h3>
-            <p>Begin with the readiness assessment to identify operational and strategic gaps in the business.[web:50]</p>
-          </article>
-
-          <article class="step fade-up">
-            <div class="step-number">Step 02</div>
-            <h3>Strategize</h3>
-            <p>Use strategy development sessions to clarify direction, priorities, and business decisions.[web:44][web:45]</p>
-          </article>
-
-          <article class="step fade-up">
-            <div class="step-number">Step 03</div>
-            <h3>Organize</h3>
-            <p>Translate strategy into structure through organization design and clearer operating systems.[web:44][web:48]</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="resources" class="section">
-      <div class="container">
-        <div class="fade-up">
-          <div class="eyebrow">Resources</div>
-          <h2 class="section-title">Education that supports the work.</h2>
-          <p class="section-copy">
-            Systro maintains a business blog and free educational resources tied to business growth, operational efficiency, and leadership.[web:56]
-          </p>
-        </div>
-
-        <div class="resources-list">
-          <article class="resource fade-up">
-            <h3>Business insights</h3>
-            <p>Use articles and written guidance to reinforce strategic thinking and operational discipline.[web:56]</p>
-            <a href="https://systrosolutions.com/blog/" target="_blank" rel="noopener noreferrer">Open blog</a>
-          </article>
-
-          <article class="resource fade-up">
-            <h3>Assessment-first entry</h3>
-            <p>The assessment works as a practical lead-in for owners who need clarity before investing deeper.[web:50]</p>
-            <a href="https://systrostratassess.com" target="_blank" rel="noopener noreferrer">View assessment</a>
-          </article>
-
-          <article class="resource fade-up">
-            <h3>Guided next steps</h3>
-            <p>From strategy support to organizational alignment, the educational layer helps prospects understand where they need help most.[web:44][web:50]</p>
-            <a href="https://systrosolutions.com/" target="_blank" rel="noopener noreferrer">Visit website</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container contact-wrap">
-        <div class="contact-card fade-up">
-          <div class="eyebrow">Contact</div>
-          <h2 class="section-title">Let’s make the business more intentional.</h2>
-          <p class="section-copy">
-            Systro’s value proposition is centered on helping owners build more organized, profitable businesses through strategy and structure.[web:44][web:48]
-          </p>
-        </div>
-
-        <div class="contact-form fade-up">
-          <form>
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" type="text" placeholder="Your name" />
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" />
-            </div>
-
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" placeholder="Tell us about your business goals"></textarea>
-            </div>
-
-            <button class="btn btn-primary" type="submit">Send inquiry</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>Systro Solutions — Purposefully Profitable.</div>
-      <div>Built as a modern mockup page inspired by Systro’s public content architecture.[web:44][web:10]</div>
-    </div>
-  </footer>
-
-  <script>
-    const revealItems = document.querySelectorAll('.fade-up, .card');
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-in');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.16 });
-
-    revealItems.forEach(item => revealObserver.observe(item));
-  </script>
+    </main>
+  </div>
 </body>
 </html>
