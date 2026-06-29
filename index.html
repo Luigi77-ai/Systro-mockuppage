@@ -7,24 +7,22 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0f1720;
-      --bg-soft: #16212d;
-      --line: rgba(255,255,255,0.08);
-      --text: #f5f7fa;
-      --muted: rgba(245,247,250,0.72);
-      --accent: #4f8f6b;
-      --accent-2: #5fa7c8;
+      --black: #050505;
+      --black-soft: #0d0d0d;
       --white: #ffffff;
-      --gray: #cfd6dc;
+      --gray: #cfcfcf;
+      --line: rgba(255,255,255,0.1);
+      --blue-bar: #1473ff;
+      --green: #3fd16f;
+      --green-dark: #1f9f4d;
+      --blue-soft: #72a8ff;
       --shadow: 0 18px 60px rgba(0,0,0,0.28);
       --radius-full: 999px;
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --container: min(1180px, calc(100% - 32px));
+      --container: min(1220px, calc(100% - 32px));
     }
 
     * {
@@ -33,14 +31,11 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: #0b1118;
-      color: var(--text);
+      font-family: "Manrope", system-ui, sans-serif;
+      background: var(--white);
+      color: #101010;
+      overflow-x: hidden;
     }
 
     img {
@@ -54,96 +49,64 @@
       text-decoration: none;
     }
 
-    .container {
-      width: var(--container);
-      margin: 0 auto;
-    }
-
     .top-bar {
-      background: #000000;
-      color: #ffffff;
+      background: var(--blue-bar);
+      color: var(--white);
       text-align: center;
-      padding: 10px 16px;
+      padding: 12px 16px;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
     }
 
-    .site-shell {
+    .hero-shell {
       position: relative;
+      background: var(--black);
+      color: var(--white);
       overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 20%, rgba(95,167,200,0.12), transparent 22%),
-        linear-gradient(to bottom, #14202b 0%, #0f1720 100%);
-      min-height: 100vh;
+      padding-bottom: 0;
     }
 
-    .site-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 120px 120px;
-      opacity: 0.22;
-      pointer-events: none;
-    }
-
-    .site-header {
+    .header {
       position: relative;
       z-index: 3;
-      padding: 18px 0 8px;
+      padding: 22px 0 10px;
     }
 
     .header-inner {
       width: var(--container);
       margin: 0 auto;
+    }
+
+    .menu {
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       align-items: center;
-      gap: 20px;
+      gap: 14px;
+      width: 100%;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .nav-left a {
+    .menu a {
+      text-align: center;
+      color: #ffffff;
       font-size: 12px;
-      color: var(--muted);
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 10px rgba(255,255,255,0.18);
+      white-space: nowrap;
     }
 
-    .nav-left a:hover {
-      color: var(--white);
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: -0.02em;
-    }
-
-    .nav-right {
-      display: flex;
-      justify-content: flex-end;
+    .menu a:hover {
+      color: var(--blue-soft);
     }
 
     .hero {
       position: relative;
       z-index: 2;
-      padding: 34px 0 0;
+      padding: 18px 0 0;
+      background: var(--black);
     }
 
     .hero-inner {
@@ -152,79 +115,20 @@
       text-align: center;
     }
 
-    .hero-decor {
-      position: relative;
-      width: 100%;
-      height: 60px;
-      margin-bottom: 10px;
-    }
-
-    .shape {
-      position: absolute;
-      border-radius: 999px 999px 0 0;
-      background: var(--accent);
-      opacity: 0.95;
-    }
-
-    .shape-left {
-      width: 40px;
-      height: 22px;
-      left: 17%;
-      top: 18px;
-    }
-
-    .shape-right {
-      width: 34px;
-      height: 18px;
-      right: 18%;
-      top: 28px;
-      background: var(--accent-2);
-    }
-
-    .shape-top {
-      width: 94px;
-      height: 54px;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 0;
-      border-radius: 999px;
-      background: var(--accent-2);
-      filter: blur(0.2px);
-    }
-
-    .shape-gray-left,
-    .shape-gray-right {
-      position: absolute;
-      width: 30px;
-      height: 14px;
-      background: rgba(255,255,255,0.48);
-      border-radius: 999px 999px 0 0;
-    }
-
-    .shape-gray-left {
-      left: 7%;
-      top: 44px;
-    }
-
-    .shape-gray-right {
-      right: 23%;
-      top: 20px;
-    }
-
     .hero-title {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(46px, 7vw, 88px);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(50px, 7vw, 88px);
       line-height: 0.95;
-      letter-spacing: -0.05em;
-      max-width: 760px;
+      letter-spacing: -0.04em;
+      max-width: 780px;
       margin: 0 auto 18px;
-      color: #f8f9fb;
+      color: #f8f8f8;
     }
 
     .hero-copy {
-      max-width: 540px;
+      max-width: 620px;
       margin: 0 auto 20px;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.7;
       color: var(--gray);
     }
@@ -233,29 +137,31 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      padding: 0 20px;
+      min-height: 44px;
+      padding: 0 22px;
       border-radius: var(--radius-full);
-      background: var(--accent);
-      color: #ffffff;
+      background: var(--green);
+      color: var(--white);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      box-shadow: var(--shadow);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      box-shadow: var(--shadow);
     }
 
     .hero-btn:hover {
-      background: var(--accent-2);
+      background: var(--green-dark);
     }
 
     .hero-gallery {
       position: relative;
-      margin-top: 42px;
-      padding-bottom: 24px;
+      margin-top: 30px;
+      transform: translateY(-18px);
+      z-index: 3;
     }
 
     .gallery-row {
+      width: 100%;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr 1.1fr 1fr 0.9fr;
       align-items: end;
@@ -267,7 +173,7 @@
       position: relative;
       overflow: hidden;
       border-right: 1px solid rgba(255,255,255,0.08);
-      background: #1a1f25;
+      background: #171717;
     }
 
     .gallery-card:last-child {
@@ -278,19 +184,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: contrast(1.02) saturate(0.9);
+      filter: contrast(1.02) saturate(0.88);
     }
 
     .gallery-card.tall {
-      height: 255px;
+      height: 265px;
     }
 
     .gallery-card.mid {
-      height: 220px;
+      height: 228px;
     }
 
     .gallery-card.short {
-      height: 200px;
+      height: 208px;
     }
 
     .gallery-overlay-tag {
@@ -302,74 +208,97 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border-radius: var(--radius-full);
-      background: rgba(10,15,20,0.58);
+      background: rgba(0,0,0,0.52);
       color: #ffffff;
       backdrop-filter: blur(10px);
     }
 
-    .hero-bottom-fade {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 120px;
-      background: linear-gradient(to bottom, rgba(11,17,24,0) 0%, rgba(11,17,24,0.95) 100%);
-      pointer-events: none;
+    .transition-white {
+      position: relative;
+      margin-top: -120px;
+      padding-top: 150px;
+      background: var(--white);
+      z-index: 4;
     }
 
-    @media (max-width: 980px) {
-      .header-inner {
-        grid-template-columns: 1fr;
-        justify-items: center;
+    .services-preview {
+      width: var(--container);
+      margin: 0 auto;
+      padding-bottom: 72px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .service-item {
+      padding: 8px 4px;
+    }
+
+    .service-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(63, 209, 111, 0.12);
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      flex: 0 0 44px;
+    }
+
+    .service-head h3 {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .service-item p {
+      color: #2d2d2d;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1100px) {
+      .menu {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .nav-left,
-      .nav-right {
-        justify-content: center;
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .hero-title {
-        max-width: 10ch;
+        font-size: clamp(42px, 12vw, 64px);
+      }
+
+      .hero-copy {
+        font-size: 14px;
       }
 
       .gallery-row {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 10px;
       }
 
       .gallery-card {
         border-right: none;
-        border-radius: 18px;
-        overflow: hidden;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .top-bar {
-        font-size: 10px;
-        letter-spacing: 0.16em;
-      }
-
-      .nav-left {
-        justify-content: center;
-        gap: 12px 16px;
-      }
-
-      .hero {
-        padding-top: 22px;
-      }
-
-      .hero-title {
-        font-size: clamp(40px, 13vw, 60px);
-        max-width: 100%;
-      }
-
-      .hero-copy {
-        font-size: 13px;
-      }
-
-      .gallery-row {
-        grid-template-columns: 1fr;
       }
 
       .gallery-card.tall,
@@ -377,16 +306,21 @@
       .gallery-card.short {
         height: 220px;
       }
+
+      .transition-white {
+        margin-top: -60px;
+        padding-top: 90px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="top-bar">BE PURPOSEFULLY PROFITABLE</div>
 
-  <div class="site-shell">
-    <header class="site-header">
+  <div class="hero-shell">
+    <header class="header">
       <div class="header-inner">
-        <nav class="nav-left" aria-label="Primary navigation">
+        <nav class="menu" aria-label="Primary navigation">
           <a href="#">ABOUT</a>
           <a href="#">SERVICES</a>
           <a href="#">SYSTRO ASSESSMENT</a>
@@ -394,25 +328,11 @@
           <a href="#">FREE RESOURCES</a>
           <a href="#">CONTACT</a>
         </nav>
-
-        <a href="#" class="logo" aria-label="Systro Solutions">
-          Systro
-        </a>
-
-        <div class="nav-right"></div>
       </div>
     </header>
 
     <main class="hero">
       <div class="hero-inner">
-        <div class="hero-decor" aria-hidden="true">
-          <span class="shape shape-left"></span>
-          <span class="shape shape-top"></span>
-          <span class="shape shape-right"></span>
-          <span class="shape-gray-left"></span>
-          <span class="shape-gray-right"></span>
-        </div>
-
         <h1 class="hero-title">
           We bring fulfillment<br>
           To your work and your<br>
@@ -420,7 +340,7 @@
         </h1>
 
         <p class="hero-copy">
-          Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization.
+          Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization.[web:44][web:74]
         </p>
 
         <a href="#" class="hero-btn">OUR SERVICES</a>
@@ -429,7 +349,7 @@
           <div class="gallery-row">
             <article class="gallery-card short">
               <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80" alt="Professional working scene" width="700" height="900" loading="lazy">
-              <span class="gallery-overlay-tag">Strategy</span>
+              <span class="gallery-overlay-tag">Programs</span>
             </article>
 
             <article class="gallery-card tall">
@@ -438,7 +358,7 @@
 
             <article class="gallery-card mid">
               <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Team collaboration meeting" width="900" height="700" loading="lazy">
-              <span class="gallery-overlay-tag">Growth</span>
+              <span class="gallery-overlay-tag">Services</span>
             </article>
 
             <article class="gallery-card tall">
@@ -449,10 +369,58 @@
               <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=700&q=80" alt="Professional smiling portrait" width="700" height="900" loading="lazy">
             </article>
           </div>
-          <div class="hero-bottom-fade"></div>
         </section>
       </div>
     </main>
   </div>
+
+  <section class="transition-white">
+    <div class="services-preview">
+      <div class="services-grid">
+        <article class="service-item">
+          <div class="service-head">
+            <div class="icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 19V10M10 19V5M16 19V13M22 19V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>PROGRAMS</h3>
+          </div>
+          <p>
+            Our development of strategy programs and organization design for small business frameworks give you the confidence and certainty in your decisions to achieve desired outcomes with your business.
+          </p>
+        </article>
+
+        <article class="service-item">
+          <div class="service-head">
+            <div class="icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 7H20M4 12H20M4 17H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>SERVICES</h3>
+          </div>
+          <p>
+            Systro Solutions provides strategy development and organization design for small business training. We offer one-on-one strategy development instruction and organization design tools and training. We work alongside you to create an organization that functions effectively and profitability.[web:44]
+          </p>
+        </article>
+
+        <article class="service-item">
+          <div class="service-head">
+            <div class="icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3L21 7.5V16.5L12 21L3 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>CHALLENGE</h3>
+          </div>
+          <p>
+            We implement only those strategies that fit your circumstances. They work because they are unique to your skills, talents, and desires. You are in control of making the adjustments that you believe in.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
