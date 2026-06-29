@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -17,8 +17,7 @@
       --gray: #cfcfcf;
       --line: rgba(255,255,255,0.1);
       --blue-bar: #1473ff;
-      --green: #3fd16f;
-      --green-dark: #1f9f4d;
+      --green: #31c85f;
       --blue-soft: #72a8ff;
       --shadow: 0 18px 60px rgba(0,0,0,0.28);
       --radius-full: 999px;
@@ -55,7 +54,7 @@
       text-align: center;
       padding: 12px 16px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.22em;
       text-transform: uppercase;
     }
@@ -64,13 +63,13 @@
       position: relative;
       background: var(--black);
       color: var(--white);
-      overflow: hidden;
+      overflow: visible;
       padding-bottom: 0;
     }
 
     .header {
       position: relative;
-      z-index: 3;
+      z-index: 5;
       padding: 22px 0 10px;
     }
 
@@ -91,7 +90,7 @@
       text-align: center;
       color: #ffffff;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       text-shadow: 0 0 10px rgba(255,255,255,0.18);
@@ -104,8 +103,8 @@
 
     .hero {
       position: relative;
-      z-index: 2;
-      padding: 18px 0 0;
+      z-index: 4;
+      padding: 56px 0 0;
       background: var(--black);
     }
 
@@ -116,13 +115,15 @@
     }
 
     .hero-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(50px, 7vw, 88px);
+      font-family: "Manrope", system-ui, sans-serif;
+      font-size: clamp(42px, 6.6vw, 78px);
+      font-weight: 800;
       line-height: 0.95;
-      letter-spacing: -0.04em;
-      max-width: 780px;
-      margin: 0 auto 18px;
-      color: #f8f8f8;
+      letter-spacing: -0.05em;
+      max-width: 760px;
+      margin: 26px auto 18px;
+      color: #f8f9fb;
+      text-transform: uppercase;
     }
 
     .hero-copy {
@@ -137,27 +138,26 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0 22px;
+      min-height: 46px;
+      padding: 0 24px;
       border-radius: var(--radius-full);
-      background: var(--green);
-      color: var(--white);
+      background: linear-gradient(180deg, #f4f4f4 0%, #c8c8c8 48%, #efefef 100%);
+      color: #0b0b0b;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-btn:hover {
-      background: var(--green-dark);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.85),
+        0 10px 28px rgba(0,0,0,0.32);
+      border: 1px solid rgba(255,255,255,0.5);
     }
 
     .hero-gallery {
       position: relative;
-      margin-top: 30px;
-      transform: translateY(-18px);
-      z-index: 3;
+      margin-top: 26px;
+      transform: translateY(8px);
+      z-index: 6;
     }
 
     .gallery-row {
@@ -215,10 +215,10 @@
 
     .transition-white {
       position: relative;
-      margin-top: -120px;
-      padding-top: 150px;
+      margin-top: -110px;
+      padding-top: 180px;
       background: var(--white);
-      z-index: 4;
+      z-index: 1;
     }
 
     .services-preview {
@@ -234,25 +234,27 @@
     }
 
     .service-item {
-      padding: 8px 4px;
+      padding: 8px 12px;
+      text-align: center;
     }
 
     .service-head {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       margin-bottom: 18px;
     }
 
     .icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: rgba(63, 209, 111, 0.12);
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(49, 200, 95, 0.12);
       display: grid;
       place-items: center;
       color: var(--green);
-      flex: 0 0 44px;
+      flex: 0 0 52px;
     }
 
     .service-head h3 {
@@ -264,9 +266,11 @@
     }
 
     .service-item p {
-      color: #2d2d2d;
+      color: #111111;
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.85;
+      max-width: 34ch;
+      margin: 0 auto;
     }
 
     @media (max-width: 1100px) {
@@ -285,7 +289,8 @@
       }
 
       .hero-title {
-        font-size: clamp(42px, 12vw, 64px);
+        font-size: clamp(38px, 11vw, 58px);
+        margin-top: 22px;
       }
 
       .hero-copy {
@@ -308,8 +313,8 @@
       }
 
       .transition-white {
-        margin-top: -60px;
-        padding-top: 90px;
+        margin-top: -50px;
+        padding-top: 100px;
       }
     }
   </style>
@@ -340,7 +345,7 @@
         </h1>
 
         <p class="hero-copy">
-          Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization.[web:44][web:74]
+          Systro Solutions helps small business owners become Purposefully Profitable through strategy and organization.
         </p>
 
         <a href="#" class="hero-btn">OUR SERVICES</a>
@@ -380,8 +385,8 @@
         <article class="service-item">
           <div class="service-head">
             <div class="icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M4 19V10M10 19V5M16 19V13M22 19V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 19V10M10 19V5M16 19V13M22 19V8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </div>
             <h3>PROGRAMS</h3>
@@ -394,23 +399,23 @@
         <article class="service-item">
           <div class="service-head">
             <div class="icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M4 7H20M4 12H20M4 17H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 7H20M4 12H20M4 17H14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </div>
             <h3>SERVICES</h3>
           </div>
           <p>
-            Systro Solutions provides strategy development and organization design for small business training. We offer one-on-one strategy development instruction and organization design tools and training. We work alongside you to create an organization that functions effectively and profitability.[web:44]
+            Systro Solutions provides strategy development and organization design for small business training. We offer one-on-one strategy development instruction and organization design tools and training. We work alongside you to create an organization that functions effectively and profitability.
           </p>
         </article>
 
         <article class="service-item">
           <div class="service-head">
             <div class="icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3L21 7.5V16.5L12 21L3 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3L21 7.5V16.5L12 21L3 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="2.2"/>
+                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <h3>CHALLENGE</h3>
