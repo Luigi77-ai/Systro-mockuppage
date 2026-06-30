@@ -75,39 +75,39 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
 .btn-green{background:var(--green);color:#fff;box-shadow:0 4px 20px rgba(92,184,92,0.35)}
 .btn-green:hover{background:var(--green-dark);transform:translateY(-2px)}
 
-/* HERO STATS ABAJO */
+/* HERO STATS SIN FONDO NEGRO, COMO LA IMAGEN */
 .hero-stats{
   display:flex;
   gap:0;
   justify-content:center;
+  flex-wrap:wrap;
 }
 
-/* NUEVO ESTILO PARA QUE SE VEAN COMO LA IMAGEN, SIN FONDO NEGRO */
 .stat-card{
   background:#fff;
   color:var(--text);
   border:1px solid var(--border);
-  padding:30px 40px;
+  padding:30px 50px;
   text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  box-shadow:0 18px 45px rgba(0,0,0,0.12);
 }
 .stat-card:first-child{
-  border-radius:14px 0 0 14px;
+  border-radius:20px 0 0 20px;
 }
 .stat-card:last-child{
-  border-radius:0 14px 14px 0;
+  border-radius:0 20px 20px 0;
 }
 .stat-num{
   font-family:'Oswald',sans-serif;
-  font-size:36px;
+  font-size:38px;
   font-weight:700;
   color:var(--teal);
   line-height:1;
   margin-bottom:6px;
 }
 .stat-lbl{
-  font-size:12px;
-  letter-spacing:0.15em;
+  font-size:11px;
+  letter-spacing:0.18em;
   text-transform:uppercase;
   color:var(--text-light);
 }
@@ -284,8 +284,8 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
 </div>
 </section>
 
-<!-- HERO STATS ABAJO DEL HOME -->
-<section style="background:#0c1520;padding:40px 0;">
+<!-- HERO STATS ABAJO DEL HOME SIN FONDO NEGRO -->
+<section style="padding:40px 0; background:transparent;">
 <div class="container">
 <div class="hero-stats">
 <div class="stat-card"><div class="stat-num">500+</div><div class="stat-lbl">Profitable Businesses</div></div>
@@ -328,7 +328,7 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
 <p>Systro provides strategy development and organization design instruction, tools, and training through one-on-one guidance that helps businesses function more effectively and more profitably.</p>
 </div>
 <div class="service-card">
-<div class="service-icon"><i class="fas fa-chart-line"></i></div>
+<div "service-icon"><i class="fas fa-chart-line"></i></div>
 <div class="service-num">03 / Challenge</div>
 <h3>Custom Strategy</h3>
 <p>Systro implements only the strategies that fit the client's circumstances, skills, talents, and goals, so the path forward feels aligned, usable, and truly grounded in what the business owner truly believes in.</p>
