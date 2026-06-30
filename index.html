@@ -56,13 +56,11 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
 .nav-cta:hover{background:var(--teal-dark)!important}
 
 /* HERO */
-/* centrado vertical y sección home completa */
 .hero{
   position:relative;
   min-height:92vh;
   display:flex;
   align-items:center;
-  justify-content:center;
   overflow:hidden;
   background:#0c1520;
 }
@@ -84,7 +82,8 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   z-index:2;
   color:#fff;
   max-width:700px;
-  text-align:left;
+  margin:0 auto;
+  text-align:center;
 }
 .hero-badge{
   display:inline-flex;
@@ -99,7 +98,7 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   font-weight:700;
   letter-spacing:0.15em;
   text-transform:uppercase;
-  margin-bottom:28px;
+  margin:0 auto 28px;
 }
 .hero-badge::before{
   content:"";
@@ -127,9 +126,14 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   opacity:0.85;
   max-width:520px;
   line-height:1.7;
-  margin-bottom:40px;
+  margin:0 auto 40px;
 }
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-btns{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
 .btn{
   display:inline-flex;
   align-items:center;
@@ -163,8 +167,17 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   background:rgba(255,255,255,0.1);
   border-color:#fff;
 }
+.btn-green{
+  background:var(--green);
+  color:#fff;
+  box-shadow:0 4px 20px rgba(92,184,92,0.35);
+}
+.btn-green:hover{
+  background:var(--green-dark);
+  transform:translateY(-2px);
+}
 
-/* HERO STATS: barra justo al final del home */
+/* HERO STATS DENTRO DEL HERO */
 .hero-stats{
   position:relative;
   z-index:2;
@@ -172,8 +185,8 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   gap:0;
   justify-content:center;
   flex-wrap:wrap;
-  margin-top:80px;   /* la baja más, separada del texto */
-  margin-bottom:-60px; /* se acerca al corte de la sección */
+  margin-top:40px;
+  margin-bottom:40px;
 }
 .stat-card{
   background:#fff;
@@ -294,12 +307,7 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
 @media(max-width:900px){
 .services-grid,.about-grid,.stats-grid,.pain-grid,.footer-grid{grid-template-columns:1fr}
 .process-grid{grid-template-columns:1fr}
-.hero-stats{
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:40px;
-  margin-bottom:-40px;
-}
+.hero-stats{flex-wrap:wrap;justify-content:center}
 .nav-links{display:none}
 .process-grid::before{display:none}
 .teal-banner-inner{flex-direction:column;text-align:center}
@@ -599,7 +607,7 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
 </footer>
 
 <script>
-// Animaciones de entrada
+// Smooth animations on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
