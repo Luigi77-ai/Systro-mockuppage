@@ -79,13 +79,38 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
 .hero-stats{
   display:flex;
   gap:0;
+  justify-content:center;
 }
 
-.stat-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:20px 30px;text-align:center;color:#fff}
-.stat-card:first-child{border-radius:12px 0 0 12px}
-.stat-card:last-child{border-radius:0 12px 12px 0}
-.stat-num{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--teal-light);line-height:1}
-.stat-lbl{font-size:11px;opacity:0.7;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px}
+/* NUEVO ESTILO PARA QUE SE VEAN COMO LA IMAGEN, SIN FONDO NEGRO */
+.stat-card{
+  background:#fff;
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:30px 40px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+.stat-card:first-child{
+  border-radius:14px 0 0 14px;
+}
+.stat-card:last-child{
+  border-radius:0 14px 14px 0;
+}
+.stat-num{
+  font-family:'Oswald',sans-serif;
+  font-size:36px;
+  font-weight:700;
+  color:var(--teal);
+  line-height:1;
+  margin-bottom:6px;
+}
+.stat-lbl{
+  font-size:12px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--text-light);
+}
 
 /* TEAL BANNER */
 .teal-banner{background:var(--teal);color:#fff;padding:24px 0}
@@ -262,7 +287,7 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
 <!-- HERO STATS ABAJO DEL HOME -->
 <section style="background:#0c1520;padding:40px 0;">
 <div class="container">
-<div class="hero-stats" style="justify-content:center;flex-wrap:wrap;">
+<div class="hero-stats">
 <div class="stat-card"><div class="stat-num">500+</div><div class="stat-lbl">Profitable Businesses</div></div>
 <div class="stat-card"><div class="stat-num">100+</div><div class="stat-lbl">Mission Mapping Sessions</div></div>
 <div class="stat-card"><div class="stat-num">100%</div><div class="stat-lbl">Customer Satisfaction</div></div>
@@ -499,7 +524,7 @@ if (entry.isIntersecting) {
 const statBigs = entry.target.querySelectorAll('.stat-big, .stat-num');
 statBigs.forEach(el => {
 const text = el.textContent;
-const num = parseInt(text.replace(/\D/g,'')); // corregido para dígitos
+const num = parseInt(text.replace(/\D/g,''));
 const suffix = text.replace(/[0-9]/g,'');
 if(num) animateCounter(el, num, suffix);
 });
