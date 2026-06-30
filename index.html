@@ -56,11 +56,13 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
 .nav-cta:hover{background:var(--teal-dark)!important}
 
 /* HERO */
+/* centrado vertical y sección home completa */
 .hero{
   position:relative;
   min-height:92vh;
   display:flex;
   align-items:center;
+  justify-content:center;
   overflow:hidden;
   background:#0c1520;
 }
@@ -82,7 +84,7 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   z-index:2;
   color:#fff;
   max-width:700px;
-  padding-top:60px;
+  text-align:left;
 }
 .hero-badge{
   display:inline-flex;
@@ -161,17 +163,8 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   background:rgba(255,255,255,0.1);
   border-color:#fff;
 }
-.btn-green{
-  background:var(--green);
-  color:#fff;
-  box-shadow:0 4px 20px rgba(92,184,92,0.35);
-}
-.btn-green:hover{
-  background:var(--green-dark);
-  transform:translateY(-2px);
-}
 
-/* HERO STATS DENTRO DEL HERO, SIN FONDO EXTRA */
+/* HERO STATS: barra justo al final del home */
 .hero-stats{
   position:relative;
   z-index:2;
@@ -179,8 +172,8 @@ nav{background:#fff;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px
   gap:0;
   justify-content:center;
   flex-wrap:wrap;
-  margin-top:40px;
-  margin-bottom:40px;
+  margin-top:80px;   /* la baja más, separada del texto */
+  margin-bottom:-60px; /* se acerca al corte de la sección */
 }
 .stat-card{
   background:#fff;
@@ -301,7 +294,12 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
 @media(max-width:900px){
 .services-grid,.about-grid,.stats-grid,.pain-grid,.footer-grid{grid-template-columns:1fr}
 .process-grid{grid-template-columns:1fr}
-.hero-stats{flex-wrap:wrap;justify-content:center}
+.hero-stats{
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:40px;
+  margin-bottom:-40px;
+}
 .nav-links{display:none}
 .process-grid::before{display:none}
 .teal-banner-inner{flex-direction:column;text-align:center}
@@ -371,7 +369,6 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="container">
-
     <div class="hero-content">
       <div class="hero-badge">Be Purposefully Profitable&#8482;</div>
       <h1>Build A<br><em>Predictable</em><br>Revenue Engine<br>That Scales</h1>
@@ -390,7 +387,6 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
       </div>
     </div>
 
-    <!-- cuadro de números justo al final del home -->
     <div class="hero-stats">
       <div class="stat-card">
         <div class="stat-num">500+</div>
@@ -409,7 +405,6 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
         <div class="stat-lbl">Expert Collaborations</div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -604,7 +599,7 @@ footer{background:var(--dark2);color:#fff;padding:60px 0 30px}
 </footer>
 
 <script>
-// Smooth animations on scroll
+// Animaciones de entrada
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
